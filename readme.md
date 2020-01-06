@@ -1,4 +1,4 @@
-![Preview](https://rawcdn.githack.com/tetreum/peque-traffic/ea1ddf542c8422f49b18a2446d53f8c4da023542/Images/2.gif)
+![Preview](https://raw.githubusercontent.com/tetreum/peque-traffic/master/Images/2.gif)
 
 # PequeTraffic
 
