@@ -13,6 +13,8 @@ namespace Peque.Traffic
         }
         public GameObject[] prefabs;
         public int numberToSpawn = 5;
+        [Tooltip("Number of attempts that spawner will try to instantiate the requested amount of prefabs.")]
+        public int maxAttempts = 10;
         public Direction allowedDirection = Direction.Both;
 
         void Start() {
@@ -21,12 +23,31 @@ namespace Peque.Traffic
 
         IEnumerator spawn () {
             int count = 0;
+            int attempts = 0;
 
             while (count < numberToSpawn) {
+                Waypoint randomWaypoint = getRandomWaypoint();
+
+                // seems like there are no available slots
+                if (randomWaypoint == null) {
+                    Debug.Log("No available slots found for " + transform.name + " waiting a second");
+                    attempts++;
+
+                    if (attempts == maxAttempts) {
+                        Debug.Log("No available slots found for " + transform.name + ", stopping spawner.");
+                        break;
+                    }
+
+                    yield return new WaitForSeconds(1);
+                    continue;
+                }
+
                 GameObject obj = Instantiate(prefabs[Random.Range(0, prefabs.Length)]);
-                Transform child = transform.GetChild(Random.Range(0, transform.childCount -1));
-                
-                obj.transform.position = child.position;
+
+                Vector3 spawnPosition = randomWaypoint.transform.position;
+                spawnPosition.y += 0.5f;
+
+                obj.transform.position = spawnPosition;
 
                 int direction;
 
@@ -36,11 +57,29 @@ namespace Peque.Traffic
                     direction = (int)allowedDirection;
                 }
 
-                obj.GetComponent<WaypointNavigator>().init(direction, child.GetComponent<Waypoint>());
+                obj.GetComponent<WaypointNavigator>().init(direction, randomWaypoint);
 
                 yield return new WaitForEndOfFrame();
                 count++;
             }
+        }
+
+        Waypoint getRandomWaypoint (int attempt = 0) {
+            Transform child = transform.GetChild(Random.Range(0, transform.childCount - 1));
+            Waypoint waypoint = child.GetComponent<Waypoint>();
+
+            // to avoid overlapping check if current or nearest waypoints are already occupied
+            if (waypoint.occupied || (waypoint.nextWaypoint != null && waypoint.nextWaypoint.occupied) || (waypoint.previousWaypoint != null && waypoint.previousWaypoint.occupied)) {
+                attempt++;
+
+                if (attempt == maxAttempts) {
+                    return null;
+                }
+
+                return getRandomWaypoint(attempt);
+            }
+
+            return waypoint;
         }
     }
 }
