@@ -13,6 +13,10 @@ You've got 3 options:
 1. Download the entire repository as [zip file](https://github.com/tetreum/peque-traffic/archive/master.zip) and uncompress it somewhere else
 2. Download the unitypackage. (quite stupid as it's not production ready for any game)
 
+### Compatible Unity version
+
+Check [ProjectVersion.txt](https://github.com/tetreum/peque-traffic/blob/master/ProjectSettings/ProjectVersion.txt).
+
 ### Usage
 
 Please check the included demo scene.
@@ -24,7 +28,6 @@ Please check the included demo scene.
 ### ToDo
 
 - Make pedestrians & vehicles respect other entities space
-- Make vehicles not jump between lines
 - Go multithread
 
 

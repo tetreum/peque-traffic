@@ -60,7 +60,7 @@ namespace Peque.Traffic
 
             currentWaypoint.occupied = true;
 
-            SetDestination(currentWaypoint.GetPosition());
+            SetDestination(currentWaypoint.singleDirection ? currentWaypoint.GetCenterPosition() : currentWaypoint.GetPosition());
         }
         protected void SetDestination(Vector3 destination) {
             this.destination = destination;

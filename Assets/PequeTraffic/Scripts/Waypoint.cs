@@ -27,6 +27,10 @@ namespace Peque.Traffic
         [HideInInspector]
         public int semaphorePath;
 
+        public Vector3 GetCenterPosition() {
+            return transform.position;
+        }
+
         public Vector3 GetPosition() {
             Vector3 minBound = transform.position + transform.right * width / 2f;
             Vector3 maxBound = transform.position - transform.right * width / 2f;
