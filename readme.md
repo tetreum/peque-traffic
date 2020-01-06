@@ -1,4 +1,4 @@
-![Preview](https://cldup.com/dTxpPi9lDf.thumb.png)
+![Preview](https://rawcdn.githack.com/tetreum/peque-traffic/ea1ddf542c8422f49b18a2446d53f8c4da023542/Images/2.gif)
 
 # PequeTraffic
 
@@ -9,8 +9,8 @@ Uses waypoint system rather than NavMesh.
 ### Download
 
 You've got 3 options:
-1. (Recommended for development) Clone this repo by using `git clone `
-1. Download the entire repository as [zip file]() and uncompress it somewhere else
+1. (Recommended for development) Clone this repo by using `git clone https://github.com/tetreum/peque-traffic.git`
+1. Download the entire repository as [zip file](https://github.com/tetreum/peque-traffic/archive/master.zip) and uncompress it somewhere else
 2. Download the unitypackage. (quite stupid as it's not production ready for any game)
 
 ### Usage
