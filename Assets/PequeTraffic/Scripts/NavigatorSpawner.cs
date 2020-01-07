@@ -41,6 +41,8 @@ namespace Peque.Traffic
                     yield return new WaitForSeconds(1);
                     continue;
                 }
+				// make sure this waypoint isn't reused for spawning more entities
+                randomWaypoint.occupied = true;
 
                 GameObject obj = Instantiate(prefabs[Random.Range(0, prefabs.Length)]);
 
@@ -48,6 +50,18 @@ namespace Peque.Traffic
                 spawnPosition.y += 0.5f;
 
                 obj.transform.position = spawnPosition;
+
+				// Point spawned entities looking at their next waypoint
+                Vector3 lookPos = spawnPosition;
+                if (randomWaypoint.nextWaypoint) {
+                    lookPos = randomWaypoint.nextWaypoint.transform.position;
+                } else if(randomWaypoint.previousWaypoint) {
+                    lookPos = randomWaypoint.previousWaypoint.transform.position;
+                }
+
+                lookPos.y = obj.transform.position.y;
+                obj.transform.LookAt(lookPos);
+
 
                 int direction;
 
@@ -68,7 +82,7 @@ namespace Peque.Traffic
             Transform child = transform.GetChild(Random.Range(0, transform.childCount - 1));
             Waypoint waypoint = child.GetComponent<Waypoint>();
 
-            // to avoid overlapping check if current or nearest waypoints are already occupied
+            // to avoid overlapping on spawn, check if current or nearest waypoints are already occupied
             if (waypoint.occupied || (waypoint.nextWaypoint != null && waypoint.nextWaypoint.occupied) || (waypoint.previousWaypoint != null && waypoint.previousWaypoint.occupied)) {
                 attempt++;
 

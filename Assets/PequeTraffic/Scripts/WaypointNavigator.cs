@@ -4,8 +4,17 @@ namespace Peque.Traffic
 {
     public class WaypointNavigator : MonoBehaviour
     {
+        public float stopDistance = 1f;
+        public float stoppingThreshold = 1.5f;
+
         [HideInInspector]
-        public bool reachedDestination = false;
+        public bool reachedDestination {
+            get {
+                Vector3 direction = destination - transform.position;
+
+                return (direction.magnitude <= stopDistance);
+            }
+        }
         
         public Waypoint currentWaypoint;
 
@@ -64,7 +73,6 @@ namespace Peque.Traffic
         }
         protected void SetDestination(Vector3 destination) {
             this.destination = destination;
-            reachedDestination = false;
         }
     }
 }

@@ -19,7 +19,7 @@ Check [ProjectVersion.txt](https://github.com/tetreum/peque-traffic/blob/master/
 
 ### Usage
 
-Please check the included demo scene.
+Please check the included demo scene & [Game Dev Guide's youtube video](https://www.youtube.com/watch?v=MXCZ-n5VyJc).
 
 ### Recommendations
 
@@ -27,7 +27,10 @@ Please check the included demo scene.
 
 ### ToDo
 
-- Make pedestrians & vehicles respect other entities space
+- Make vehicles respect other entities space (partially done)
+- Make vehicle deacceleration more natural
+- Improve vehicle decision making when getting stuck
+- Make pedestrians respect other entities space
 - Go multithread
 
 
