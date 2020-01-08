@@ -2034,7 +2034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 7278486708920422420, guid: 276614143c1e6f04ba98dd07ac831943, type: 3}
-  numberToSpawn: 0
+  numberToSpawn: 30
   maxAttempts: 10
   allowedDirection: 2
 --- !u!114 &466477631

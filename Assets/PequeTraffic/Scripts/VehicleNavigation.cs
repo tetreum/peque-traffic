@@ -42,6 +42,7 @@ namespace Peque.Traffic
         public bool braking = false;
         [HideInInspector]
         public int stopperId;
+        [HideInInspector]
         public Sensor.Element? stoppedReason;
 
         public MeshRenderer[] stopSignals;

@@ -1135,7 +1135,6 @@ MonoBehaviour:
   frontSecurityDistance: 5
   braking: 0
   stopperId: 0
-  stoppedReason: 0
   stopSignals:
   - {fileID: 2966695954995613022}
   - {fileID: 257065334498984131}
@@ -1171,7 +1170,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5739403473209939606}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: caa2f98b4432d694e9b4b610fc4676ed, type: 3}
   m_Name: 
