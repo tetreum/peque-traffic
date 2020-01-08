@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Peque.Traffic {
 
-    public class FrontSensor : MonoBehaviour
+    public class Sensor : MonoBehaviour
     {
         public enum Element
         {
@@ -31,9 +31,15 @@ namespace Peque.Traffic {
 
         private Dictionary<int, Transform> collisions = new Dictionary<int, Transform>();
 
-        
+        private void OnDisable() {
+            // clean collisions
+            collisions = new Dictionary<int, Transform>();
+        }
 
         private void OnTriggerStay(Collider other) {
+            if (!enabled) {
+                return;
+            }
             int id = other.transform.root.GetInstanceID();
 
             if (collisions.ContainsKey(id) || getElementType(other.transform.root) == Element.None) {
@@ -44,6 +50,9 @@ namespace Peque.Traffic {
         }
 
         private void OnTriggerExit(Collider other) {
+            if (!enabled) {
+                return;
+            }
             try {
                 collisions.Remove(other.transform.root.GetInstanceID());
             } catch (System.Exception) {}

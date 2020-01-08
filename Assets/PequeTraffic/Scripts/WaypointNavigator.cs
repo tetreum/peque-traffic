@@ -16,7 +16,17 @@ namespace Peque.Traffic
             }
         }
         
-        public Waypoint currentWaypoint;
+        public Waypoint currentWaypoint {
+            get {
+                return _currentWaypoint;
+            }
+            set {
+                previousWaypoint = _currentWaypoint;
+                _currentWaypoint = value;
+            }
+        }
+        private Waypoint _currentWaypoint;
+        public Waypoint previousWaypoint;
 
         protected Vector3 destination;
 

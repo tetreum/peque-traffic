@@ -377,7 +377,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 597673569}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &74054996
 GameObject:
@@ -1161,7 +1161,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 597673569}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &269206451
 GameObject:
@@ -1227,7 +1227,6 @@ GameObject:
   - component: {fileID: 287431818}
   - component: {fileID: 287431821}
   - component: {fileID: 287431820}
-  - component: {fileID: 287431819}
   m_Layer: 0
   m_Name: CrossRoad
   m_TagString: Untagged
@@ -1249,20 +1248,6 @@ Transform:
   m_Father: {fileID: 372705614}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &287431819
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 287431817}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &287431820
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1727,6 +1712,59 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &396894506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 396894508}
+  - component: {fileID: 396894507}
+  m_Layer: 0
+  m_Name: waypoint 22
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &396894507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396894506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a03b85db6b9d95408507aaacb34f7ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previousWaypoint: {fileID: 1776680642}
+  nextWaypoint: {fileID: 1295489776}
+  singleDirection: 1
+  reserved: 0
+  occupied: 0
+  width: 4
+  branchRatio: 0.5
+  branches: []
+  relatedSemaphore: {fileID: 0}
+  semaphorePath: 0
+--- !u!4 &396894508
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396894506}
+  m_LocalRotation: {x: -0, y: 0.9153244, z: -0, w: 0.40271738}
+  m_LocalPosition: {x: 21.87, y: 0, z: 1.71}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 597673569}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 132.50401, z: 0}
 --- !u!1 &409828522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1831,7 +1869,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 597673569}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &421928030
 GameObject:
@@ -2465,6 +2503,7 @@ Transform:
   - {fileID: 2135522563}
   - {fileID: 1185668597}
   - {fileID: 1776680643}
+  - {fileID: 396894508}
   - {fileID: 1295489777}
   - {fileID: 1549817925}
   - {fileID: 1262796861}
@@ -2537,7 +2576,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 597673569}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: -128.598, z: 0}
 --- !u!1 &657285046
 GameObject:
@@ -2591,7 +2630,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 597673569}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &676171120
 GameObject:
@@ -2894,7 +2933,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 597673569}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &731378932
 GameObject:
@@ -3365,7 +3404,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 597673569}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &804334673
 GameObject:
@@ -3431,7 +3470,6 @@ GameObject:
   - component: {fileID: 818329959}
   - component: {fileID: 818329962}
   - component: {fileID: 818329961}
-  - component: {fileID: 818329960}
   m_Layer: 0
   m_Name: CrossRoad (3)
   m_TagString: Untagged
@@ -3453,20 +3491,6 @@ Transform:
   m_Father: {fileID: 372705614}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &818329960
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 818329958}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &818329961
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4224,7 +4248,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 597673569}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!23 &1037647001 stripped
 MeshRenderer:
@@ -4601,7 +4625,6 @@ GameObject:
   - component: {fileID: 1218211236}
   - component: {fileID: 1218211239}
   - component: {fileID: 1218211238}
-  - component: {fileID: 1218211237}
   m_Layer: 0
   m_Name: CrossRoad (4)
   m_TagString: Untagged
@@ -4623,20 +4646,6 @@ Transform:
   m_Father: {fileID: 372705614}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &1218211237
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1218211235}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1218211238
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4840,7 +4849,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 597673569}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1265562348
 GameObject:
@@ -4930,7 +4939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a03b85db6b9d95408507aaacb34f7ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  previousWaypoint: {fileID: 0}
+  previousWaypoint: {fileID: 396894507}
   nextWaypoint: {fileID: 1549817924}
   singleDirection: 1
   reserved: 0
@@ -4952,7 +4961,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 597673569}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1318800545
 GameObject:
@@ -5871,7 +5880,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 597673569}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1449384841 stripped
 MeshRenderer:
@@ -6129,7 +6138,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 597673569}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1576892728
 GameObject:
@@ -6341,7 +6350,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 597673569}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1705851519
 GameObject:
@@ -6501,7 +6510,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 597673569}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: -54.007004, z: 0}
 --- !u!1 &1776317677
 GameObject:
@@ -6639,14 +6648,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1185668596}
-  nextWaypoint: {fileID: 0}
+  nextWaypoint: {fileID: 396894507}
   singleDirection: 1
   reserved: 0
   occupied: 0
   width: 4
   branchRatio: 0.5
-  branches:
-  - {fileID: 1295489776}
+  branches: []
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &1776680643
@@ -6886,7 +6894,6 @@ GameObject:
   - component: {fileID: 1853761965}
   - component: {fileID: 1853761968}
   - component: {fileID: 1853761967}
-  - component: {fileID: 1853761966}
   m_Layer: 0
   m_Name: CrossRoad (1)
   m_TagString: Untagged
@@ -6908,20 +6915,6 @@ Transform:
   m_Father: {fileID: 372705614}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &1853761966
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1853761964}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1853761967
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7072,7 +7065,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 597673569}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 36.017002, z: 0}
 --- !u!1 &1870753023
 GameObject:
@@ -7270,7 +7263,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 597673569}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1918737376
 GameObject:
@@ -7301,7 +7294,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 597673569}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &1918737378
 MonoBehaviour:
@@ -7660,7 +7653,6 @@ GameObject:
   - component: {fileID: 2008230257}
   - component: {fileID: 2008230260}
   - component: {fileID: 2008230259}
-  - component: {fileID: 2008230258}
   m_Layer: 0
   m_Name: CrossRoad (2)
   m_TagString: Untagged
@@ -7682,20 +7674,6 @@ Transform:
   m_Father: {fileID: 372705614}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &2008230258
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2008230256}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &2008230259
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7899,7 +7877,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 597673569}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2069875428
 GameObject:
