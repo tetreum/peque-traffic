@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityStandardAssets.Vehicles.Car;
 
@@ -28,6 +29,7 @@ namespace Peque.Traffic
                 if (value != _sense) {
                     _sense = value;
                     updateSensorsStatus();
+                    updateSignalsStatus();
                 }
             }
         }
@@ -40,9 +42,11 @@ namespace Peque.Traffic
         public bool braking = false;
         [HideInInspector]
         public int stopperId;
-        public Sensor.Element stoppedReason;
+        public Sensor.Element? stoppedReason;
 
         public MeshRenderer[] stopSignals;
+        public MeshRenderer[] leftSignals;
+        public MeshRenderer[] rightSignals;
         public Sensor frontSensor;
         public Sensor rightSensor;
         public Sensor leftSensor;
@@ -66,6 +70,7 @@ namespace Peque.Traffic
             carController = GetComponent<CarController>();
 
             showStopSignals(false);
+            updateSignalsStatus(true);
         }
 
         private void Update() {
@@ -92,11 +97,18 @@ namespace Peque.Traffic
             Sensor sensor = detectCollisions();
 
             if (sensor == null) {
+                stoppedReason = null;
+                stopperId = 0;
                 return false;
             }
 
-            stoppedReason = sensor.detectedElementType;
-            stopperId = sensor.detectedElement.GetInstanceID();
+            try {
+                stoppedReason = sensor.detectedElementType;
+                stopperId = sensor.detectedElement.GetInstanceID();
+            } catch (InvalidOperationException) {
+                return false; // it seems that there is no longer a collision
+            }
+            
 
             return true;
         }
@@ -183,6 +195,15 @@ namespace Peque.Traffic
             }
         }
 
+        void updateSignalsStatus(bool forceOff = false) {
+            foreach (MeshRenderer mesh in leftSignals) {
+                mesh.enabled = (sense == Sense.Left && !forceOff);
+            }
+            foreach (MeshRenderer mesh in rightSignals) {
+                mesh.enabled = (sense == Sense.Right && !forceOff);
+            }
+        }
+
         void hardBrake () {
             if (braking) {
                 return;
@@ -237,10 +258,10 @@ namespace Peque.Traffic
         Sense getSense(Vector3 direction) {
             Vector3 right = Vector3.Cross(transform.up, transform.forward);        // right vector
             float dir = Vector3.Dot(right, direction);
-
-            if (dir > 0f) {
+            
+            if (dir > 1f) {
                 return Sense.Right;
-            } else if (dir < 0f) {
+            } else if (dir < -1f) {
                 return Sense.Left;
             } else {
                 return Sense.Forward; // it could also be backward

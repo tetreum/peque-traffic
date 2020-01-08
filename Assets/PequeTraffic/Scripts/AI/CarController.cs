@@ -23,19 +23,19 @@ namespace UnityStandardAssets.Vehicles.Car
         [SerializeField] private GameObject[] m_WheelMeshes = new GameObject[4];
         //[SerializeField] private WheelEffects[] m_WheelEffects = new WheelEffects[4];
         [SerializeField] private Transform m_CentreOfMassOffset;
-        [SerializeField] private float m_MaximumSteerAngle;
-        [Range(0, 1)] [SerializeField] private float m_SteerHelper; // 0 is raw physics , 1 the car will grip in the direction it is facing
-        [Range(0, 1)] [SerializeField] private float m_TractionControl; // 0 is no traction control, 1 is full interference
-        [SerializeField] private float m_FullTorqueOverAllWheels;
-        [SerializeField] private float m_ReverseTorque;
+        [SerializeField] private float m_MaximumSteerAngle = 25.0f;
+        [Range(0, 1)] [SerializeField] private float m_SteerHelper = 0.7f; // 0 is raw physics , 1 the car will grip in the direction it is facing
+        [Range(0, 1)] [SerializeField] private float m_TractionControl = 1.0f; // 0 is no traction control, 1 is full interference
+        [SerializeField] private float m_FullTorqueOverAllWheels = 2000.0f;
+        [SerializeField] private float m_ReverseTorque = 150.0f;
         [SerializeField] private float m_MaxHandbrakeTorque;
         [SerializeField] private float m_Downforce = 100f;
         [SerializeField] private SpeedType m_SpeedType;
         [SerializeField] private float m_Topspeed = 200;
         [SerializeField] private static int NoOfGears = 5;
         [SerializeField] private float m_RevRangeBoundary = 1f;
-        [SerializeField] private float m_SlipLimit;
-        [SerializeField] private float m_BrakeTorque;
+        [SerializeField] private float m_SlipLimit = 0.4f;
+        [SerializeField] private float m_BrakeTorque = 20000.0f;
 
         private Quaternion[] m_WheelMeshLocalRotations;
         private Vector3 m_Prevpos, m_Pos;
