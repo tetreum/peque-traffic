@@ -22,7 +22,7 @@ namespace UnityStandardAssets.Vehicles.Car
         [SerializeField] private WheelCollider[] m_WheelColliders = new WheelCollider[4];
         [SerializeField] private GameObject[] m_WheelMeshes = new GameObject[4];
         //[SerializeField] private WheelEffects[] m_WheelEffects = new WheelEffects[4];
-        [SerializeField] private Transform m_CentreOfMassOffset;
+        public Transform m_CentreOfMassOffset;
         [SerializeField] private float m_MaximumSteerAngle = 25.0f;
         [Range(0, 1)] [SerializeField] private float m_SteerHelper = 0.7f; // 0 is raw physics , 1 the car will grip in the direction it is facing
         [Range(0, 1)] [SerializeField] private float m_TractionControl = 1.0f; // 0 is no traction control, 1 is full interference
@@ -30,7 +30,7 @@ namespace UnityStandardAssets.Vehicles.Car
         [SerializeField] private float m_ReverseTorque = 150.0f;
         [SerializeField] private float m_MaxHandbrakeTorque;
         [SerializeField] private float m_Downforce = 100f;
-        [SerializeField] private SpeedType m_SpeedType;
+        [SerializeField] private SpeedType m_SpeedType = SpeedType.KPH;
         [SerializeField] private float m_Topspeed = 200;
         [SerializeField] private static int NoOfGears = 5;
         [SerializeField] private float m_RevRangeBoundary = 1f;
@@ -55,17 +55,22 @@ namespace UnityStandardAssets.Vehicles.Car
         public float Revs { get; private set; }
         public float AccelInput { get; private set; }
 
+        private void Awake() {
+            m_Rigidbody = GetComponent<Rigidbody>();
+        }
+
         // Use this for initialization
         private void Start() {
             m_WheelMeshLocalRotations = new Quaternion[4];
             for (int i = 0; i < 4; i++) {
                 m_WheelMeshLocalRotations[i] = m_WheelMeshes[i].transform.localRotation;
             }
+
             m_WheelColliders[0].attachedRigidbody.centerOfMass = m_CentreOfMassOffset.localPosition;
+            m_Rigidbody.centerOfMass = m_CentreOfMassOffset.localPosition;
 
             m_MaxHandbrakeTorque = float.MaxValue;
 
-            m_Rigidbody = GetComponent<Rigidbody>();
             m_CurrentTorque = m_FullTorqueOverAllWheels - (m_TractionControl * m_FullTorqueOverAllWheels);
         }
 
