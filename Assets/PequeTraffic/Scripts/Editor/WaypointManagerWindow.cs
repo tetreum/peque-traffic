@@ -71,6 +71,8 @@ namespace Peque.Traffic
 
             // use previous waypoint data
             if (previousWaypoint != null) {
+                waypoint.maxSpeed = previousWaypoint.maxSpeed;
+                waypoint.minSpeed = previousWaypoint.minSpeed;
                 waypoint.width = previousWaypoint.width;
                 waypoint.singleDirection = previousWaypoint.singleDirection;
             } else if (waypointRoot.name.Contains("Vehicles")) {
@@ -86,6 +88,8 @@ namespace Peque.Traffic
 
             // use previous waypoint width
             if (previousWaypoint != null) {
+                waypoint.maxSpeed = previousWaypoint.maxSpeed;
+                waypoint.minSpeed = previousWaypoint.minSpeed;
                 waypoint.width = previousWaypoint.width;
             }
 
@@ -109,6 +113,8 @@ namespace Peque.Traffic
             waypoint.transform.position = selectedWaypoint.transform.position;
             waypoint.transform.forward = selectedWaypoint.transform.forward;
             waypoint.width = selectedWaypoint.width;
+            waypoint.maxSpeed = selectedWaypoint.maxSpeed;
+            waypoint.minSpeed = selectedWaypoint.minSpeed;
 
             if (selectedWaypoint.previousWaypoint != null) {
                 waypoint.previousWaypoint = selectedWaypoint.previousWaypoint;
@@ -129,6 +135,8 @@ namespace Peque.Traffic
             waypoint.transform.position = selectedWaypoint.transform.position;
             waypoint.transform.forward = selectedWaypoint.transform.forward;
             waypoint.width = selectedWaypoint.width;
+            waypoint.maxSpeed = selectedWaypoint.maxSpeed;
+            waypoint.minSpeed = selectedWaypoint.minSpeed;
 
             waypoint.previousWaypoint = selectedWaypoint;
 

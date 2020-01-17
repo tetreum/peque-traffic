@@ -185,7 +185,7 @@ Transform:
   m_GameObject: {fileID: 1072801149767574821}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0.002, y: 0, z: 0.8029}
-  m_LocalScale: {x: 0.5655859, y: 1, z: 1.1800878}
+  m_LocalScale: {x: 0.5655859, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5597314930029245167}
   m_RootOrder: 12
@@ -1130,11 +1130,13 @@ MonoBehaviour:
   stoppingThreshold: 1.5
   previousWaypoint: {fileID: 0}
   status: 0
-  movementSpeed: 5
+  currentSpeed: 0
+  maxSpeed: 20
   movementRotation: 1
   frontSecurityDistance: 5
   braking: 0
   stopperId: 0
+  enableDebugging: 0
   stopSignals:
   - {fileID: 2966695954995613022}
   - {fileID: 257065334498984131}

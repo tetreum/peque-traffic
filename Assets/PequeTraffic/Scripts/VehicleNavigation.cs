@@ -33,8 +33,10 @@ namespace Peque.Traffic
                 }
             }
         }
-        
-        public float movementSpeed = 1;
+
+        [HideInInspector]
+        public int currentSpeed = 0;
+        public int maxSpeed = 5;
         public float movementRotation = 1;
         public float frontSecurityDistance = 5f;
 
@@ -90,7 +92,16 @@ namespace Peque.Traffic
             }
 
             if (!gotCollisions()) {
-                moveToWaypoint(movementSpeed);
+                int speed = currentWaypoint.minSpeed + UnityEngine.Random.Range(0, 20);
+
+                if (speed > currentWaypoint.maxSpeed) {
+                    speed = currentWaypoint.maxSpeed;
+                }
+                if (speed > maxSpeed) {
+                    speed = maxSpeed;
+                }
+                currentSpeed = speed;
+                moveToWaypoint(speed);
             }
         }
 
@@ -109,7 +120,6 @@ namespace Peque.Traffic
             } catch (InvalidOperationException) {
                 return false; // it seems that there is no longer a collision
             }
-            
 
             return true;
         }
@@ -154,13 +164,13 @@ namespace Peque.Traffic
                         return true;
                     }
                     // adjust speed to not collide
-                    moveToWaypoint(infrontVehicle.movementSpeed - 1);
+                    moveToWaypoint(infrontVehicle.currentSpeed - 1);
                     return true;
             }
             return false;
         }
 
-        void moveToWaypoint (float speed) {
+        void moveToWaypoint (int speed) {
             if (braking) {
                 StopCoroutine(AddDrag());
             }
@@ -171,7 +181,7 @@ namespace Peque.Traffic
             transform.position = Vector3.MoveTowards(transform.position, destination, Time.deltaTime * speed);
 
             if (direction != Vector3.zero) {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 4);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * (speed / 2));
 
                 sense = getSense(direction);
             }
@@ -217,6 +227,7 @@ namespace Peque.Traffic
                 rigidbody.drag = 0;
             }
 
+            currentSpeed = 0;
             status = Status.Stopped;
             //StartCoroutine(AddDrag());
         }
