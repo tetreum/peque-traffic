@@ -436,8 +436,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &69824446
@@ -749,8 +749,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &109445903
@@ -1356,8 +1356,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &258423844
@@ -1544,8 +1544,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &316388200
@@ -1654,8 +1654,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &329363504
@@ -1709,8 +1709,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &358896362
@@ -1764,8 +1764,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &359707565
@@ -1874,8 +1874,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &369046230
@@ -1976,8 +1976,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &396894508
@@ -2141,8 +2141,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &414879987
@@ -2196,8 +2196,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &421928032
@@ -2324,7 +2324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 7278486708920422420, guid: 276614143c1e6f04ba98dd07ac831943, type: 3}
-  numberToSpawn: 30
+  numberToSpawn: 0
   maxAttempts: 10
   allowedDirection: 2
 --- !u!114 &466477631
@@ -2525,8 +2525,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &494795834
@@ -2580,8 +2580,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &495925227
@@ -2860,8 +2860,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &612741109
@@ -2916,8 +2916,8 @@ MonoBehaviour:
   branchRatio: 0.5
   branches:
   - {fileID: 1900667389}
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &657285048
@@ -3081,8 +3081,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &685481376
@@ -3227,8 +3227,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &724575539
@@ -3337,8 +3337,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &739756811
@@ -3712,8 +3712,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &802594746
@@ -4142,8 +4142,8 @@ MonoBehaviour:
   branchRatio: 0.5
   branches:
   - {fileID: 1442126812}
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &846770819
@@ -4197,8 +4197,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &858334459
@@ -4506,8 +4506,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &1021867180
@@ -4622,8 +4622,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &1069821383
@@ -4990,8 +4990,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &1185668597
@@ -5343,8 +5343,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &1262796861
@@ -5459,8 +5459,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &1295489777
@@ -6267,8 +6267,8 @@ MonoBehaviour:
   branchRatio: 0.5
   branches:
   - {fileID: 1900667389}
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &1402967338
@@ -6618,8 +6618,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &1442126813
@@ -6827,8 +6827,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &1518209773
@@ -6937,8 +6937,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &1549817925
@@ -6992,8 +6992,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &1576892730
@@ -7213,8 +7213,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &1701781658
@@ -7379,8 +7379,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &1723579525
@@ -7434,8 +7434,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &1776317679
@@ -7544,8 +7544,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &1776680643
@@ -7897,8 +7897,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &1865019827
@@ -7952,8 +7952,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &1865031550
@@ -8040,8 +8040,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &1900667390
@@ -8156,8 +8156,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &1917878523
@@ -8225,8 +8225,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!1 &1929687990
@@ -8437,8 +8437,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &1976572197
@@ -8506,8 +8506,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!1 &1998704297
@@ -8790,8 +8790,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &2035968042
@@ -9065,8 +9065,8 @@ MonoBehaviour:
   width: 4
   branchRatio: 0.5
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
+  minSpeed: 5
+  maxSpeed: 10
   relatedSemaphore: {fileID: 0}
   semaphorePath: 0
 --- !u!4 &2135522563

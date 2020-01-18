@@ -22,10 +22,10 @@ namespace Peque.Traffic
         public float branchRatio = 0.5f;
         public List<Waypoint> branches = new List<Waypoint>();
 
-        [Range(10, 200)]
+        [Range(1, 200)]
         public int minSpeed = 10;
 
-        [Range(10, 200)]
+        [Range(1, 200)]
         public int maxSpeed = 50;
 
         [HideInInspector]

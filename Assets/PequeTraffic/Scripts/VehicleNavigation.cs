@@ -54,10 +54,24 @@ namespace Peque.Traffic
         public Sensor rightSensor;
         public Sensor leftSensor;
 
+        [SerializeField] [Range(0, 1)] private float m_CautiousSpeedFactor = 0.05f;               // percentage of max speed to use when being maximally cautious
+        [SerializeField] [Range(0, 180)] private float m_CautiousMaxAngle = 50f;                  // angle of approaching corner to treat as warranting maximum caution
+        [SerializeField] private float m_CautiousMaxDistance = 100f;                              // distance at which distance-based cautiousness begins
+        [SerializeField] private float m_CautiousAngularVelocityFactor = 30f;                     // how cautious the AI should be when considering its own current angular velocity (i.e. easing off acceleration if spinning!)
+        [SerializeField] private float m_SteerSensitivity = 0.05f;                                // how sensitively the AI uses steering input to turn to the desired direction
+        [SerializeField] private float m_AccelSensitivity = 0.04f;                                // How sensitively the AI uses the accelerator to reach the current desired speed
+        [SerializeField] private float m_BrakeSensitivity = 1f;                                   // How sensitively the AI uses the brake to reach the current desired speed
+        [SerializeField] private float m_LateralWanderDistance = 3f;                              // how far the car will wander laterally towards its target
+        [SerializeField] private float m_LateralWanderSpeed = 0.1f;                               // how fast the lateral wandering will fluctuate
+        [SerializeField] [Range(0, 1)] private float m_AccelWanderAmount = 0.1f;                  // how much the cars acceleration will wander
+        [SerializeField] private float m_AccelWanderSpeed = 0.1f;
+		private float m_RandomPerlin;
+
         private Sense _sense;
         private WaypointNavigator waypointNavigator;
         new private Rigidbody rigidbody;
         private CarController carController;
+        
 
         void Awake() {
             // teak a little vehicle settings to not make them look equal
@@ -65,6 +79,8 @@ namespace Peque.Traffic
             frontSecurityDistance += Random.Range(-1f, 1f);
             movementSpeed += Random.Range(-0.5f, 1f);
             */
+            m_RandomPerlin = UnityEngine.Random.value * 100;
+
             rightSensor.enabled = false;
             leftSensor.enabled = false;
 
@@ -174,18 +190,83 @@ namespace Peque.Traffic
             if (braking) {
                 StopCoroutine(AddDrag());
             }
+            status = Status.Moving;
 
             Vector3 direction = destination - transform.position;
 
             destination.y = transform.position.y;
-            transform.position = Vector3.MoveTowards(transform.position, destination, Time.deltaTime * speed);
 
-            if (direction != Vector3.zero) {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * (speed / 2));
+            /**
+             * To improve performance, near vehicles should be using rigidbodies
+             * while far ones no.
+             * But right now, i cant make rigid moving feel good
+            */
+            if (rigidbody && false) {
+                Vector3 fwd = transform.forward;
+                if (rigidbody.velocity.magnitude > carController.MaxSpeed * 0.1f) {
+                    fwd = rigidbody.velocity;
+                }
 
-                sense = getSense(direction);
+                float desiredSpeed = speed;
+
+                float approachingCornerAngle = Vector3.Angle(currentWaypoint.transform.forward, fwd);
+
+                // also consider the current amount we're turning, multiplied up and then compared in the same way as an upcoming corner angle
+                float spinningAngle = rigidbody.angularVelocity.magnitude * m_CautiousAngularVelocityFactor;
+
+                // if it's different to our current angle, we need to be cautious (i.e. slow down) a certain amount
+                float cautiousnessRequired = Mathf.InverseLerp(0, m_CautiousMaxAngle,
+                                                               Mathf.Max(spinningAngle,
+                                                                         approachingCornerAngle));
+                desiredSpeed = Mathf.Lerp(carController.MaxSpeed, carController.MaxSpeed * m_CautiousSpeedFactor,
+                                          cautiousnessRequired);
+
+                // use different sensitivity depending on whether accelerating or braking:
+                float accelBrakeSensitivity = (desiredSpeed < carController.CurrentSpeed)
+                                                  ? m_BrakeSensitivity
+                                                  : m_AccelSensitivity;
+
+                // decide the actual amount of accel/brake input to achieve desired speed.
+                float accel = Mathf.Clamp((desiredSpeed - carController.CurrentSpeed) * accelBrakeSensitivity, -1, 1);
+
+                // add acceleration 'wander', which also prevents AI from seeming too uniform and robotic in their driving
+                // i.e. increasing the accel wander amount can introduce jostling and bumps between AI cars in a race
+                accel *= (1 - m_AccelWanderAmount) +
+                         (Mathf.PerlinNoise(Time.time * m_AccelWanderSpeed, m_RandomPerlin) * m_AccelWanderAmount);
+
+                // calculate the local-relative position of the target, to steer towards
+                Vector3 localTarget = transform.InverseTransformPoint(destination);
+
+                // work out the local angle towards the target
+                float targetAngle = Mathf.Atan2(localTarget.x, localTarget.z) * Mathf.Rad2Deg;
+
+                // get the amount of steering needed to aim the car towards the target
+                float steer = Mathf.Clamp(targetAngle * m_SteerSensitivity, -1, 1) * Mathf.Sign(carController.CurrentSpeed);
+
+                // feed input to the car controller.
+                carController.Move(steer, accel, accel, 0f);
+            } else {
+                transform.position = Vector3.MoveTowards(transform.position, destination, Time.deltaTime * speed);
+
+                if (direction != Vector3.zero) {
+                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * (speed / 2));
+
+                    sense = getSense(direction);
+                    rotateWheels();
+                }
             }
-            status = Status.Moving;
+        }
+
+        void rotateWheels () {
+            var meshes = carController.getWheelMeshes();
+            int i = 0;
+            foreach (var mesh in meshes) {
+                if (i == 2) {
+                    break;
+                }
+                mesh.transform.rotation = Quaternion.LookRotation((destination - transform.position));
+                i++;
+            }
         }
 
         // only enable lateral sensors when vehicle is turning
