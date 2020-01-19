@@ -1,4 +1,5 @@
 ![Preview](https://raw.githubusercontent.com/tetreum/peque-traffic/master/Images/2.gif)
+![Basic support for additive scenes](https://raw.githubusercontent.com/tetreum/peque-traffic/master/Images/1.gif)
 
 # PequeTraffic
 
@@ -25,6 +26,14 @@ Please check the included demo scene & [Game Dev Guide's youtube video](https://
 
 - Disable 3G gizmos for better editing
 
+### Features
+- Vehicle & pedestrian support
+- Basic support for additive scenes
+- Single/Dual direction lanes
+- Ability to set min&max speed for each lane
+- Semaphores
+- Etc..
+
 ### ToDo
 
 - Make vehicles respect other entities space (partially done)
@@ -41,3 +50,4 @@ Please check the included demo scene & [Game Dev Guide's youtube video](https://
 - Multiple pedestrian prefabs
 - Character Navigation Controller
 - When creating new waypoints reuse previous created waypoints data (so you can go faster)
+- Etc..

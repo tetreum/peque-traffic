@@ -8,6 +8,11 @@ namespace Peque.Traffic
         public Waypoint previousWaypoint;
         public Waypoint nextWaypoint;
 
+        [Tooltip("If the previous waypoint is in a different scene, write down it's name here")]
+        public string previousAdditiveWaypoint;
+        [Tooltip("If the next waypoint is in a different scene, write down it's name here")]
+        public string nextAdditiveWaypoint;
+
         public bool singleDirection = false;
 
         [HideInInspector]
@@ -42,6 +47,29 @@ namespace Peque.Traffic
             Vector3 maxBound = transform.position - transform.right * width / 2f;
 
             return Vector3.Lerp(minBound, maxBound, Random.Range(0f, 1f));
+        }
+
+        public void Awake() {
+            findAdditiveLinks();
+        }
+
+        public void findAdditiveLinks() {
+            if (previousAdditiveWaypoint != null && previousWaypoint == null) {
+                GameObject additiveWaypoint = GameObject.Find(previousAdditiveWaypoint);
+
+                if (additiveWaypoint) {
+                    previousWaypoint = additiveWaypoint.GetComponent<Waypoint>();
+                    previousWaypoint.findAdditiveLinks();
+                }
+            }
+            if (nextAdditiveWaypoint != null && nextWaypoint == null) {
+                GameObject additiveWaypoint = GameObject.Find(nextAdditiveWaypoint);
+
+                if (additiveWaypoint) {
+                    nextWaypoint = additiveWaypoint.GetComponent<Waypoint>();
+                    nextWaypoint.findAdditiveLinks();
+                }
+            }
         }
     }
 }

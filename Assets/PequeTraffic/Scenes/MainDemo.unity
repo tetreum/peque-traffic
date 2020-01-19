@@ -235,6 +235,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 2096939176}
   nextWaypoint: {fileID: 1661279999}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -389,6 +391,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 75267704}
   nextWaypoint: {fileID: 1917575268}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -430,6 +434,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 657285047}
   nextWaypoint: {fileID: 612741108}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -578,6 +584,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1846260672}
   nextWaypoint: {fileID: 141285695}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -633,6 +641,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 2025752175}
   nextWaypoint: {fileID: 65180918}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -688,6 +698,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1917575268}
   nextWaypoint: {fileID: 1233248654}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -743,6 +755,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1918737378}
   nextWaypoint: {fileID: 2135522562}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -798,6 +812,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1831719451}
   nextWaypoint: {fileID: 1643818529}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -854,6 +870,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1168052092}
   nextWaypoint: {fileID: 1171648781}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -909,6 +927,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1265562349}
   nextWaypoint: {fileID: 1786413471}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -964,6 +984,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1329802193}
   nextWaypoint: {fileID: 731378933}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -1019,6 +1041,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 74449011}
   nextWaypoint: {fileID: 804334674}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -1074,6 +1098,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1345043133}
   nextWaypoint: {fileID: 1998704298}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -1129,6 +1155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 840787598}
   nextWaypoint: {fileID: 2069875429}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -1184,6 +1212,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1402967337}
   nextWaypoint: {fileID: 2130491649}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -1239,6 +1269,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 235117105}
   nextWaypoint: {fileID: 1614036907}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -1294,6 +1326,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 0}
   nextWaypoint: {fileID: 174776274}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -1350,6 +1384,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1917878522}
   nextWaypoint: {fileID: 1865031549}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -1405,6 +1441,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 685382156}
   nextWaypoint: {fileID: 1498446506}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -1538,6 +1576,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 369046229}
   nextWaypoint: {fileID: 1069821382}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -1593,6 +1633,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 798628355}
   nextWaypoint: {fileID: 2128114702}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -1648,6 +1690,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 685481375}
   nextWaypoint: {fileID: 369046229}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -1703,6 +1747,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1776317678}
   nextWaypoint: {fileID: 1402967337}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -1758,6 +1804,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1996948353}
   nextWaypoint: {fileID: 1776317678}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -1813,6 +1861,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 932809750}
   nextWaypoint: {fileID: 409828523}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -1868,6 +1918,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 329363503}
   nextWaypoint: {fileID: 316388199}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -1970,6 +2022,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1776680642}
   nextWaypoint: {fileID: 1295489776}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -2025,6 +2079,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 2130491649}
   nextWaypoint: {fileID: 1137058995}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -2080,6 +2136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 360288645}
   nextWaypoint: {fileID: 530599653}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -2135,6 +2193,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 802594745}
   nextWaypoint: {fileID: 1723579524}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -2190,6 +2250,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1518209772}
   nextWaypoint: {fileID: 685481375}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -2324,7 +2386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 7278486708920422420, guid: 276614143c1e6f04ba98dd07ac831943, type: 3}
-  numberToSpawn: 0
+  numberToSpawn: 30
   maxAttempts: 10
   allowedDirection: 2
 --- !u!114 &466477631
@@ -2371,6 +2433,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 530599653}
   nextWaypoint: {fileID: 894238389}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -2519,6 +2583,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1865019826}
   nextWaypoint: {fileID: 846770818}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -2574,6 +2640,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 739756810}
   nextWaypoint: {fileID: 1576892729}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -2629,6 +2697,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 409828523}
   nextWaypoint: {fileID: 467322713}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -2854,6 +2924,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 69824445}
   nextWaypoint: {fileID: 1021867179}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -2909,6 +2981,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1262796860}
   nextWaypoint: {fileID: 69824445}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -2965,6 +3039,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1389231096}
   nextWaypoint: {fileID: 1718342155}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -3020,6 +3096,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 2029368210}
   nextWaypoint: {fileID: 269206452}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -3075,6 +3153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 421928031}
   nextWaypoint: {fileID: 329363503}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -3221,6 +3301,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1442126812}
   nextWaypoint: {fileID: 1917878522}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -3276,6 +3358,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 137383555}
   nextWaypoint: {fileID: 1929687991}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -3331,6 +3415,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1900667389}
   nextWaypoint: {fileID: 495925226}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -3400,6 +3486,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1220168129}
   nextWaypoint: {fileID: 0}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -3535,6 +3623,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1643818529}
   nextWaypoint: {fileID: 1063036949}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -3596,6 +3686,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1968087746}
   nextWaypoint: {fileID: 327959763}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -3651,6 +3743,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1063036949}
   nextWaypoint: {fileID: 1343566672}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -3706,6 +3800,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1701781657}
   nextWaypoint: {fileID: 414879986}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -3761,6 +3857,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 141285695}
   nextWaypoint: {fileID: 840787598}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -4080,6 +4178,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 804334674}
   nextWaypoint: {fileID: 166023377}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -4135,6 +4235,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 494795833}
   nextWaypoint: {fileID: 1976572196}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -4191,6 +4293,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1576892729}
   nextWaypoint: {fileID: 1518209772}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -4246,6 +4350,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 467322713}
   nextWaypoint: {fileID: 2025752175}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -4301,6 +4407,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 2145372413}
   nextWaypoint: {fileID: 360288645}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -4445,6 +4553,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 2128114702}
   nextWaypoint: {fileID: 1822856182}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -4500,6 +4610,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 612741108}
   nextWaypoint: {fileID: 2035968041}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -4561,6 +4673,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 774240279}
   nextWaypoint: {fileID: 801493773}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -4616,6 +4730,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 316388199}
   nextWaypoint: {fileID: 1865019826}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -4764,6 +4880,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 401497342}
   nextWaypoint: {fileID: 1168052092}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -4819,6 +4937,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1413731351}
   nextWaypoint: {fileID: 1375249105}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -4874,6 +4994,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1137058995}
   nextWaypoint: {fileID: 130732436}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -4929,6 +5051,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 130732436}
   nextWaypoint: {fileID: 1413731351}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -4984,6 +5108,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 2135522562}
   nextWaypoint: {fileID: 1776680642}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -5039,6 +5165,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1822856182}
   nextWaypoint: {fileID: 1355612544}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -5094,6 +5222,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1343566672}
   nextWaypoint: {fileID: 1345043133}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -5227,6 +5357,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1423827381}
   nextWaypoint: {fileID: 742606432}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -5282,6 +5414,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 75955241}
   nextWaypoint: {fileID: 1831719451}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -5337,6 +5471,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1549817924}
   nextWaypoint: {fileID: 657285047}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -5392,6 +5528,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1998704298}
   nextWaypoint: {fileID: 131495416}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -5453,6 +5591,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 396894507}
   nextWaypoint: {fileID: 1549817924}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -5601,6 +5741,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1705851520}
   nextWaypoint: {fileID: 137383555}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -5656,6 +5798,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 801493773}
   nextWaypoint: {fileID: 1201080994}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -5711,6 +5855,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1201080994}
   nextWaypoint: {fileID: 157128037}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -5875,6 +6021,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1190083101}
   nextWaypoint: {fileID: 2029368210}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -5930,6 +6078,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1538833127}
   nextWaypoint: {fileID: 1380345072}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -5985,6 +6135,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1786413471}
   nextWaypoint: {fileID: 2145372413}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -6040,6 +6192,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1138145991}
   nextWaypoint: {fileID: 1538833127}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -6095,6 +6249,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1776633961}
   nextWaypoint: {fileID: 1705851520}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -6150,6 +6306,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1370215421}
   nextWaypoint: {fileID: 2096939176}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -6205,6 +6363,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1929687991}
   nextWaypoint: {fileID: 676171121}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -6260,6 +6420,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 358896361}
   nextWaypoint: {fileID: 174498611}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -6409,6 +6571,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1171648781}
   nextWaypoint: {fileID: 1138145991}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -6557,6 +6721,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1614036907}
   nextWaypoint: {fileID: 1220168129}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -6612,6 +6778,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1723579524}
   nextWaypoint: {fileID: 724575538}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -6766,6 +6934,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 269206452}
   nextWaypoint: {fileID: 1846260672}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -6821,6 +6991,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 858334458}
   nextWaypoint: {fileID: 421928031}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -6876,6 +7048,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1375249105}
   nextWaypoint: {fileID: 1370215421}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -6931,6 +7105,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1295489776}
   nextWaypoint: {fileID: 1262796860}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -6986,6 +7162,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 495925226}
   nextWaypoint: {fileID: 858334458}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -7041,6 +7219,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 174776274}
   nextWaypoint: {fileID: 1423827381}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -7096,6 +7276,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 119201788}
   nextWaypoint: {fileID: 774240279}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -7151,6 +7333,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 59378129}
   nextWaypoint: {fileID: 0}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -7207,6 +7391,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 2035968041}
   nextWaypoint: {fileID: 802594745}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -7262,6 +7448,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1379984265}
   nextWaypoint: {fileID: 1329802193}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -7331,6 +7519,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 676171121}
   nextWaypoint: {fileID: 1968087746}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -7373,6 +7563,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 414879986}
   nextWaypoint: {fileID: 1442126812}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -7428,6 +7620,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 359707564}
   nextWaypoint: {fileID: 358896361}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -7497,6 +7691,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1953869885}
   nextWaypoint: {fileID: 1379984265}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -7538,6 +7734,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1185668596}
   nextWaypoint: {fileID: 396894507}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -7593,6 +7791,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 131495416}
   nextWaypoint: {fileID: 1374332205}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -7648,6 +7848,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 969392829}
   nextWaypoint: {fileID: 1190083101}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -7703,6 +7905,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1233248654}
   nextWaypoint: {fileID: 119201788}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -7758,6 +7962,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1498446506}
   nextWaypoint: {fileID: 74449011}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -7891,6 +8097,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1069821382}
   nextWaypoint: {fileID: 494795833}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -7946,6 +8154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 258423843}
   nextWaypoint: {fileID: 1918737378}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -8034,6 +8244,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 0}
   nextWaypoint: {fileID: 739756810}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -8095,6 +8307,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 65180918}
   nextWaypoint: {fileID: 75955241}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -8150,6 +8364,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 724575538}
   nextWaypoint: {fileID: 258423843}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -8219,6 +8435,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1865031549}
   nextWaypoint: {fileID: 109445902}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -8260,6 +8478,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 731378933}
   nextWaypoint: {fileID: 1389231096}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -8315,6 +8535,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 2069875429}
   nextWaypoint: {fileID: 1776633961}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -8376,6 +8598,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1718342155}
   nextWaypoint: {fileID: 798628355}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -8431,6 +8655,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 846770818}
   nextWaypoint: {fileID: 1996948353}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -8500,6 +8726,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1976572196}
   nextWaypoint: {fileID: 359707564}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -8541,6 +8769,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 157128037}
   nextWaypoint: {fileID: 1265562349}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -8674,6 +8904,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 894238389}
   nextWaypoint: {fileID: 75267704}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -8729,6 +8961,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1355612544}
   nextWaypoint: {fileID: 685382156}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -8784,6 +9018,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1021867179}
   nextWaypoint: {fileID: 1701781657}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -8839,6 +9075,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 166023377}
   nextWaypoint: {fileID: 1953869885}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -8894,6 +9132,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1380345072}
   nextWaypoint: {fileID: 59378129}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -8949,6 +9189,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 327959763}
   nextWaypoint: {fileID: 969392829}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0
@@ -9004,6 +9246,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 174498611}
   nextWaypoint: {fileID: 401497342}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -9059,6 +9303,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 109445902}
   nextWaypoint: {fileID: 1185668596}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 1
   reserved: 0
   occupied: 0
@@ -9207,6 +9453,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1374332205}
   nextWaypoint: {fileID: 932809750}
+  previousAdditiveWaypoint: 
+  nextAdditiveWaypoint: 
   singleDirection: 0
   reserved: 0
   occupied: 0

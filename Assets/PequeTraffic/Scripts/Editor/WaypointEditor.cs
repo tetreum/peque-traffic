@@ -34,12 +34,42 @@ namespace Peque.Traffic
                 Gizmos.DrawLine(waypoint.transform.position + offset, waypoint.previousWaypoint.transform.position + offsetTo);
             }
 
+            if (waypoint.previousAdditiveWaypoint != null) {
+                GameObject additiveWaypoint = GameObject.Find(waypoint.previousAdditiveWaypoint);
+
+                if (additiveWaypoint) {
+                    if (waypoint.singleDirection) {
+                        Gizmos.color = Color.green;
+                    } else {
+                        Gizmos.color = Color.red;
+                    }
+
+                    Vector3 offset = waypoint.transform.right * waypoint.width / 2f;
+                    Vector3 offsetTo = additiveWaypoint.transform.right * additiveWaypoint.GetComponent<Waypoint>().width / 2f;
+
+                    Gizmos.DrawLine(waypoint.transform.position + offset, additiveWaypoint.transform.position + offsetTo);
+                }
+            }
+
             if (waypoint.nextWaypoint != null) {
                 Gizmos.color = Color.green;
                 Vector3 offset = waypoint.transform.right * -waypoint.width / 2f;
                 Vector3 offsetTo = waypoint.nextWaypoint.transform.right * -waypoint.nextWaypoint.width / 2f;
 
                 Gizmos.DrawLine(waypoint.transform.position + offset, waypoint.nextWaypoint.transform.position + offsetTo);
+            }
+
+            
+            if (waypoint.nextAdditiveWaypoint != null) {
+                GameObject additiveWaypoint = GameObject.Find(waypoint.nextAdditiveWaypoint);
+
+                if (additiveWaypoint) {
+                    Gizmos.color = Color.green;
+                    Vector3 offset = waypoint.transform.right * -waypoint.width / 2f;
+                    Vector3 offsetTo = additiveWaypoint.transform.right * -additiveWaypoint.GetComponent<Waypoint>().width / 2f;
+
+                    Gizmos.DrawLine(waypoint.transform.position + offset, additiveWaypoint.transform.position + offsetTo);
+                }
             }
 
             if (waypoint.branches != null) {
