@@ -170,8 +170,8 @@ namespace Peque.Traffic
                             return false;
                         } else if (infrontVehicle.currentWaypoint != currentWaypoint &&
                             infrontVehicle.stoppedReason == Sensor.Element.Vehicle &&
-                            infrontVehicle.stopperId == transform.GetInstanceID() && // they're colliding with each other
-                            (destination - infrontVehicle.transform.position).magnitude > (destination - transform.position).magnitude
+                            infrontVehicle.stopperId == transform.GetInstanceID() && // they're colliding with each other, nearest one to its destination will continue
+                            (infrontVehicle.destination - infrontVehicle.transform.position).magnitude > (destination - transform.position).magnitude
                             ) {
                             return false;
                         }
@@ -249,22 +249,31 @@ namespace Peque.Traffic
                 transform.position = Vector3.MoveTowards(transform.position, destination, Time.deltaTime * speed);
 
                 if (direction != Vector3.zero) {
-                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * (speed / 2));
+                    Quaternion frontRotation = Quaternion.LookRotation(direction);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, frontRotation, Time.deltaTime * (speed / 2));
 
                     sense = getSense(direction);
-                    rotateWheels();
+                    rotateWheels(frontRotation);
+                } else {
+                    rotateWheels(Quaternion.identity);
                 }
             }
         }
 
-        void rotateWheels () {
-            var meshes = carController.getWheelMeshes();
+        void rotateWheels (Quaternion frontRotation) {
+            GameObject[] meshes = carController.getWheelMeshes();
+            float rotation = Time.deltaTime * currentSpeed * 360;
             int i = 0;
-            foreach (var mesh in meshes) {
-                if (i == 2) {
-                    break;
+
+            frontRotation.eulerAngles = new Vector3(rotation, frontRotation.eulerAngles.y, frontRotation.eulerAngles.z);
+
+            foreach (GameObject mesh in meshes) {
+                if (i < 2) {
+                    mesh.transform.rotation = frontRotation;
+                } else {
+                    mesh.transform.Rotate(rotation, 0, 0);
                 }
-                mesh.transform.rotation = Quaternion.LookRotation((destination - transform.position));
+                
                 i++;
             }
         }
