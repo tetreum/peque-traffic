@@ -1,5 +1,10 @@
 ![Preview](https://raw.githubusercontent.com/tetreum/peque-traffic/master/Images/2.gif)
+
+*General preview*
+
 ![Basic support for additive scenes](https://raw.githubusercontent.com/tetreum/peque-traffic/master/Images/1.gif)
+
+*Basic support for additive scenes*
 
 # PequeTraffic
 
