@@ -74,6 +74,10 @@ namespace Peque.Traffic
 
             if (waypoint.branches != null) {
                 foreach (Waypoint branch in waypoint.branches) {
+                    // may not be set yet
+                    if (branch == null) {
+                        continue;
+                    }
                     Gizmos.color = Color.blue;
                     Gizmos.DrawLine(waypoint.transform.position, branch.transform.position);
                 }
