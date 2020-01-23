@@ -12,7 +12,18 @@ namespace Peque.Traffic {
             Vehicle = 1,
             Person = 2,
         }
+        public Element detectedElementType {
+            get {
+                if (detectedElement == null) {
+                    return Element.None;
+                }
 
+                return getElementType(detectedElement);
+            }
+        }
+        public Transform detectedElement;
+
+        /*
         public Element detectedElementType {
             get {
                 if (collisions.Count == 0) {
@@ -22,7 +33,7 @@ namespace Peque.Traffic {
                 return getElementType(collisions.First().Value);
             }
         }
-
+        
         public Transform detectedElement {
             get {
                 return collisions.First().Value;
@@ -35,7 +46,7 @@ namespace Peque.Traffic {
             // clean collisions
             collisions = new Dictionary<int, Transform>();
         }
-
+        
         private void OnTriggerStay(Collider other) {
             if (!enabled) {
                 return;
@@ -57,7 +68,7 @@ namespace Peque.Traffic {
                 collisions.Remove(other.transform.root.GetInstanceID());
             } catch (System.Exception) {}
         }
-
+        */
         private Element getElementType(Transform root) {
             switch (root.tag) {
                 case "Vehicle":

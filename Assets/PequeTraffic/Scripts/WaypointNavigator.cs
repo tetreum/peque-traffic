@@ -27,8 +27,8 @@ namespace Peque.Traffic
         }
         private Waypoint _currentWaypoint;
         public Waypoint previousWaypoint;
-
-        protected Vector3 destination;
+        [HideInInspector]
+        public Vector3 destination;
 
         int direction;
 

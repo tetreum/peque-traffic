@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Vehicle
+  - Person
   layers:
   - Default
   - TransparentFX

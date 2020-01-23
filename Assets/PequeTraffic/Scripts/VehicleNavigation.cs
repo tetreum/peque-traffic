@@ -53,6 +53,9 @@ namespace Peque.Traffic
         public Sensor frontSensor;
         public Sensor rightSensor;
         public Sensor leftSensor;
+        public Transform frontCast;
+        public Transform rightCast;
+        public Transform leftCast;
 
         [SerializeField] [Range(0, 1)] private float m_CautiousSpeedFactor = 0.05f;               // percentage of max speed to use when being maximally cautious
         [SerializeField] [Range(0, 180)] private float m_CautiousMaxAngle = 50f;                  // angle of approaching corner to treat as warranting maximum caution
@@ -90,6 +93,12 @@ namespace Peque.Traffic
 
             showStopSignals(false);
             updateSignalsStatus(true);
+
+            TrafficManager.Instance.add(this);
+        }
+
+        private void OnDestroy() {
+            TrafficManager.Instance.delete(this);
         }
 
         private void Update() {
@@ -136,7 +145,6 @@ namespace Peque.Traffic
             } catch (InvalidOperationException) {
                 return false; // it seems that there is no longer a collision
             }
-
             return true;
         }
 

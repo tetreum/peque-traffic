@@ -56,3 +56,8 @@ Please check the included demo scene & [Game Dev Guide's youtube video](https://
 - Character Navigation Controller
 - When creating new waypoints reuse previous created waypoints data (so you can go faster)
 - Etc..
+
+### FAQ
+
+- I get a "Internal: JobTempAlloc has allocations that are more than 4 frames old - this is not allowed and likely a leak" warning:
+Chances are that Unity is leaking, not the project. Try closing & opening Unity again.

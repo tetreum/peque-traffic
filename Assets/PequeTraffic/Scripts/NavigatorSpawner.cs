@@ -30,11 +30,11 @@ namespace Peque.Traffic
 
                 // seems like there are no available slots
                 if (randomWaypoint == null) {
-                    Debug.Log("No available slots found for " + transform.name + " waiting a second");
+                    //Debug.Log("No available slots found for " + transform.name + " waiting a second");
                     attempts++;
 
                     if (attempts == maxAttempts) {
-                        Debug.Log("No available slots found for " + transform.name + ", stopping spawner.");
+                        //Debug.Log("No available slots found for " + transform.name + ", stopping spawner.");
                         break;
                     }
 
