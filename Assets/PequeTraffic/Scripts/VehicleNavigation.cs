@@ -39,7 +39,6 @@ namespace Peque.Traffic
         public int maxSpeed = 5;
         public float movementRotation = 1;
         public float frontSecurityDistance = 5f;
-
         [HideInInspector]
         public bool braking = false;
         [HideInInspector]
@@ -92,9 +91,12 @@ namespace Peque.Traffic
             updateSignalsStatus(true);
         }
 
+        private void Start() {
+            sense = getSense(destination - transform.position);
+        }
+
         private void Update() {
             detectFreeFalling();
-
             if (reachedDestination) {
                 waypointNavigator.getNextWaypoint();
 
@@ -149,6 +151,7 @@ namespace Peque.Traffic
         }
 
         bool detectCollisions(Sensor sensor) {
+
             // if while moving we detect a person, stop
             switch (sensor.detectedElementType) {
                 case Sensor.Element.Person:
@@ -168,9 +171,16 @@ namespace Peque.Traffic
                             (destination - infrontVehicle.transform.position).magnitude > (destination - transform.position).magnitude
                             ) {
                             return false;
+                        // their path doesn't intersect and they aren't in the same path, just it's just an opposite side vehicle
+                        } else if (infrontVehicle.currentWaypoint != currentWaypoint &&
+                            !lineSegmentsIntersect(infrontVehicle.transform.position, infrontVehicle.destination, transform.position, destination) &&
+                            infrontVehicle.currentWaypoint.transform.root.GetInstanceID() != currentWaypoint.transform.root.GetInstanceID()
+                            ) {
+                            return false;
+                        // they're colliding with each other, nearest one to its destination will continue
                         } else if (infrontVehicle.currentWaypoint != currentWaypoint &&
                             infrontVehicle.stoppedReason == Sensor.Element.Vehicle &&
-                            infrontVehicle.stopperId == transform.GetInstanceID() && // they're colliding with each other, nearest one to its destination will continue
+                            infrontVehicle.stopperId == transform.GetInstanceID() && 
                             (infrontVehicle.destination - infrontVehicle.transform.position).magnitude > (destination - transform.position).magnitude
                             ) {
                             return false;
@@ -247,12 +257,12 @@ namespace Peque.Traffic
                 carController.Move(steer, accel, accel, 0f);
             } else {
                 transform.position = Vector3.MoveTowards(transform.position, destination, Time.deltaTime * speed);
+                sense = getSense(direction);
 
                 if (direction != Vector3.zero) {
                     Quaternion frontRotation = Quaternion.LookRotation(direction);
                     transform.rotation = Quaternion.Slerp(transform.rotation, frontRotation, Time.deltaTime * (speed / 2));
 
-                    sense = getSense(direction);
                     rotateWheels(frontRotation);
                 } else {
                     rotateWheels(Quaternion.identity);
@@ -368,6 +378,13 @@ namespace Peque.Traffic
             } else {
                 return Sense.Forward; // it could also be backward
             }
+        }
+
+        /**
+         * From https://www.reddit.com/r/gamedev/comments/7ww4yx/whats_the_easiest_way_to_check_if_two_line/
+         */
+        public static bool lineSegmentsIntersect(Vector2 lineOneA, Vector2 lineOneB, Vector2 lineTwoA, Vector2 lineTwoB) {
+            return (((lineTwoB.y - lineOneA.y) * (lineTwoA.x - lineOneA.x) > (lineTwoA.y - lineOneA.y) * (lineTwoB.x - lineOneA.x)) != ((lineTwoB.y - lineOneB.y) * (lineTwoA.x - lineOneB.x) > (lineTwoA.y - lineOneB.y) * (lineTwoB.x - lineOneB.x)) && ((lineTwoA.y - lineOneA.y) * (lineOneB.x - lineOneA.x) > (lineOneB.y - lineOneA.y) * (lineTwoA.x - lineOneA.x)) != ((lineTwoB.y - lineOneA.y) * (lineOneB.x - lineOneA.x) > (lineOneB.y - lineOneA.y) * (lineTwoB.x - lineOneA.x)));
         }
     }
 }
