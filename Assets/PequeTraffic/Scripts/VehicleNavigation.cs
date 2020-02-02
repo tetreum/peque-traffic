@@ -1,10 +1,12 @@
-﻿using System;
+﻿using UnityEngine;
 using System.Collections;
-using UnityEngine;
-using UnityStandardAssets.Vehicles.Car;
+using System;
 
 namespace Peque.Traffic
 {
+    /**
+     * Base from https://github.com/angelotadres/AICar/blob/master/Assets/Challenges/Challenge2/AICar.cs
+     */
     public class VehicleNavigation : WaypointNavigator
     {
         public enum Status
@@ -28,23 +30,17 @@ namespace Peque.Traffic
             set {
                 if (value != _sense) {
                     _sense = value;
+
                     updateSensorsStatus();
                     updateSignalsStatus();
                 }
             }
         }
 
-        [HideInInspector]
-        public int currentSpeed = 0;
-        public int maxSpeed = 5;
-        public float movementRotation = 1;
-        public float frontSecurityDistance = 5f;
-        [HideInInspector]
-        public bool braking = false;
-        [HideInInspector]
-        public int stopperId;
-        [HideInInspector]
-        public Sensor.Element? stoppedReason;
+        public Transform COM;
+        // index 0 & 1 are expected to be front wheels (0 left, 1 right)
+        public WheelCollider[] wheelColliders;
+        public GameObject[] wheelMeshes;
 
         public MeshRenderer[] stopSignals;
         public MeshRenderer[] leftSignals;
@@ -53,50 +49,78 @@ namespace Peque.Traffic
         public Sensor rightSensor;
         public Sensor leftSensor;
 
-        [SerializeField] [Range(0, 1)] private float m_CautiousSpeedFactor = 0.05f;               // percentage of max speed to use when being maximally cautious
-        [SerializeField] [Range(0, 180)] private float m_CautiousMaxAngle = 50f;                  // angle of approaching corner to treat as warranting maximum caution
-        [SerializeField] private float m_CautiousMaxDistance = 100f;                              // distance at which distance-based cautiousness begins
-        [SerializeField] private float m_CautiousAngularVelocityFactor = 30f;                     // how cautious the AI should be when considering its own current angular velocity (i.e. easing off acceleration if spinning!)
-        [SerializeField] private float m_SteerSensitivity = 0.05f;                                // how sensitively the AI uses steering input to turn to the desired direction
-        [SerializeField] private float m_AccelSensitivity = 0.04f;                                // How sensitively the AI uses the accelerator to reach the current desired speed
-        [SerializeField] private float m_BrakeSensitivity = 1f;                                   // How sensitively the AI uses the brake to reach the current desired speed
-        [SerializeField] private float m_LateralWanderDistance = 3f;                              // how far the car will wander laterally towards its target
-        [SerializeField] private float m_LateralWanderSpeed = 0.1f;                               // how fast the lateral wandering will fluctuate
-        [SerializeField] [Range(0, 1)] private float m_AccelWanderAmount = 0.1f;                  // how much the cars acceleration will wander
-        [SerializeField] private float m_AccelWanderSpeed = 0.1f;
-		private float m_RandomPerlin;
+        [HideInInspector]
+        public int stopperId;
+        [HideInInspector]
+        public Sensor.Element? stoppedReason;
+        [SerializeField]
+        private float frontSecurityDistance = 5f;
 
-        private Sense _sense;
+        [SerializeField]
+        private float steeringSharpness = 12.0f;
+
+        // These variables are for the gears, the array is the list of ratios. The script uses the defined gear ratios to determine how much torque to apply to the wheels.
+        [SerializeField]
+        private float[] GearRatio;
+        [SerializeField]
+        private int CurrentGear = 0;
+        public int maxSpeed = 5;
+
+        // These variables are just for applying torque to the wheels and shifting gears.
+        // using the defined Max and Min Engine RPM, the script can determine what gear the
+        // car needs to be in.
+        [SerializeField]
+        private float EngineTorque = 90.0f;
+        [SerializeField]
+        private float BrakePower = 0f;
+        [SerializeField]
+        private float MaxEngineRPM = 3000.0f;
+        [SerializeField]
+        private float MinEngineRPM = 1000.0f;
+        [SerializeField]
+        public float AntiRoll = 5000.0f;
+
+        [HideInInspector]
+        public bool braking = false;
+
+        private float EngineRPM = 0.0f;
+
+        // input steer and input torque are the values substituted out for the player input. The 
+        // "NavigateTowardsWaypoint" function determines values to use for these variables to move the car
+        // in the desired direction.
+        private float inputSteer = 0.0f;
+        private float inputTorque = 0.0f;
         private WaypointNavigator waypointNavigator;
-        new private Rigidbody rigidbody;
-        private CarController carController;
-        
+        private Rigidbody rigid;
+        private AudioSource audioPlayer;
+        private Sense _sense;
 
-        void Awake() {
-            // teak a little vehicle settings to not make them look equal
-            /* disabled while developing, to ease debugging
-            frontSecurityDistance += Random.Range(-1f, 1f);
-            movementSpeed += Random.Range(-0.5f, 1f);
-            */
-            m_RandomPerlin = UnityEngine.Random.value * 100;
+        private void Awake() {
 
             rightSensor.enabled = false;
             leftSensor.enabled = false;
 
+            audioPlayer = GetComponent<AudioSource>();
+            rigid = GetComponent<Rigidbody>();
             waypointNavigator = GetComponent<WaypointNavigator>();
-            rigidbody = GetComponent<Rigidbody>();
-            carController = GetComponent<CarController>();
 
             showStopSignals(false);
             updateSignalsStatus(true);
         }
 
         private void Start() {
+            wheelColliders[0].attachedRigidbody.centerOfMass = COM.localPosition;
+            rigid.centerOfMass = COM.localPosition;
+
             sense = getSense(destination - transform.position);
         }
 
-        private void Update() {
+        private void FixedUpdate() {
+
             detectFreeFalling();
+
+            // this just checks if the car's position is near enough to a waypoint to count as passing it, if it is, then change the target waypoint to the
+            // next in the list.
             if (reachedDestination) {
                 waypointNavigator.getNextWaypoint();
 
@@ -109,6 +133,12 @@ namespace Peque.Traffic
                 }
             }
 
+            //float mph = rigid.velocity.magnitude * 2.237f;
+
+            // This is to limit the maximum speed of the car, adjusting the drag probably isn't the best way of doing it,
+            // but it's easy, and it doesn't interfere with the physics processing.
+            rigid.drag = rigid.velocity.magnitude / 250f;
+
             if (!gotCollisions()) {
                 int speed = currentWaypoint.minSpeed + UnityEngine.Random.Range(0, 20);
 
@@ -118,8 +148,33 @@ namespace Peque.Traffic
                 if (speed > maxSpeed) {
                     speed = maxSpeed;
                 }
-                currentSpeed = speed;
                 moveToWaypoint(speed);
+
+                sense = getSense(destination - transform.position);
+            }
+        }
+
+        void moveToWaypoint(int speed) {
+            if (rigid && false) {
+                rigidMove();
+            } else {
+                vectorMove(speed);
+            }
+        }
+
+        void vectorMove(int speed) {
+            destination.y = transform.position.y;
+            Vector3 direction = destination - transform.position;
+            //float speed = EngineTorque / 20;
+            transform.position = Vector3.MoveTowards(transform.position, destination, Time.deltaTime * speed);
+
+            if (direction != Vector3.zero) {
+                Quaternion frontRotation = Quaternion.LookRotation(direction);
+                transform.rotation = Quaternion.Slerp(transform.rotation, frontRotation, Time.deltaTime * (speed / 2));
+
+                //rotateWheels(frontRotation);
+            } else {
+                //rotateWheels(Quaternion.identity);
             }
         }
 
@@ -142,7 +197,7 @@ namespace Peque.Traffic
             return true;
         }
 
-        Sensor detectCollisions () {
+        Sensor detectCollisions() {
             if (detectCollisions(frontSensor)) return frontSensor;
             if (rightSensor.enabled && detectCollisions(rightSensor)) return rightSensor;
             if (leftSensor.enabled && detectCollisions(leftSensor)) return leftSensor;
@@ -171,16 +226,16 @@ namespace Peque.Traffic
                             (destination - infrontVehicle.transform.position).magnitude > (destination - transform.position).magnitude
                             ) {
                             return false;
-                        // their path doesn't intersect and they aren't in the same path, just it's just an opposite side vehicle
+                            // their path doesn't intersect and they aren't in the same path, just it's just an opposite side vehicle
                         } else if (infrontVehicle.currentWaypoint != currentWaypoint &&
                             !lineSegmentsIntersect(infrontVehicle.transform.position, infrontVehicle.destination, transform.position, destination) &&
                             infrontVehicle.currentWaypoint.transform.root.GetInstanceID() != currentWaypoint.transform.root.GetInstanceID()
                             ) {
                             return false;
-                        // they're colliding with each other, nearest one to its destination will continue
+                            // they're colliding with each other, nearest one to its destination will continue
                         } else if (infrontVehicle.currentWaypoint != currentWaypoint &&
                             infrontVehicle.stoppedReason == Sensor.Element.Vehicle &&
-                            infrontVehicle.stopperId == transform.GetInstanceID() && 
+                            infrontVehicle.stopperId == transform.GetInstanceID() &&
                             (infrontVehicle.destination - infrontVehicle.transform.position).magnitude > (destination - transform.position).magnitude
                             ) {
                             return false;
@@ -190,106 +245,132 @@ namespace Peque.Traffic
                         return true;
                     }
                     // adjust speed to not collide
-                    moveToWaypoint(infrontVehicle.currentSpeed - 1);
+                    //moveToWaypoint(infrontVehicle.currentSpeed - 1);
                     return true;
             }
             return false;
         }
 
-        void moveToWaypoint (int speed) {
+        // From https://www.edy.es/dev/2011/10/the-stabilizer-bars-creating-physically-realistic-stable-vehicles/
+        void applyAntiRoll() {
+            WheelHit hit;
+            float travelL = 1.0f;
+            float travelR = 1.0f;
+
+            bool groundedL = wheelColliders[0].GetGroundHit(out hit);
+            if (groundedL) {
+                travelL = (-wheelColliders[0].transform.InverseTransformPoint(hit.point).y - wheelColliders[0].radius) / wheelColliders[0].suspensionDistance;
+            }
+
+            bool groundedR = wheelColliders[1].GetGroundHit(out hit);
+            if (groundedR) {
+                travelR = (-wheelColliders[1].transform.InverseTransformPoint(hit.point).y - wheelColliders[1].radius) / wheelColliders[1].suspensionDistance;
+            }
+
+            float antiRollForce = (travelL - travelR) * AntiRoll;
+
+            if (groundedL) {
+                rigid.AddForceAtPosition(wheelColliders[0].transform.up * -antiRollForce,
+                wheelColliders[0].transform.position);
+            }
+
+            if (groundedR) {
+                rigid.AddForceAtPosition(wheelColliders[1].transform.up * antiRollForce,
+                wheelColliders[1].transform.position);
+            }
+        }
+
+        void rotateWheelMeshes() {
+            for (int i = 0; i < 4; i++) {
+                Quaternion quat;
+                Vector3 position;
+                wheelColliders[i].GetWorldPose(out position, out quat);
+                wheelMeshes[i].transform.position = position;
+                wheelMeshes[i].transform.rotation = quat;
+            }
+        }
+
+        private void ShiftGears() {
+            // this funciton shifts the gears of the vehicle, it loops through all the gears, checking which will make
+            // the engine RPM fall within the desired range. The gear is then set to this "appropriate" value.
+            int AppropriateGear;
+            if (EngineRPM >= MaxEngineRPM) {
+                AppropriateGear = CurrentGear;
+
+                for (int i = 0; i < GearRatio.Length; i++) {
+                    if (wheelColliders[0].rpm * GearRatio[i] < MaxEngineRPM) {
+                        AppropriateGear = i;
+                        break;
+                    }
+                }
+
+                CurrentGear = AppropriateGear;
+            }
+
+            if (EngineRPM <= MinEngineRPM) {
+                AppropriateGear = CurrentGear;
+
+                for (int j = GearRatio.Length - 1; j >= 0; j--) {
+                    if (wheelColliders[0].rpm * GearRatio[j] > MinEngineRPM) {
+                        AppropriateGear = j;
+                        break;
+                    }
+                }
+
+                CurrentGear = AppropriateGear;
+            }
+        }
+
+        private void rigidMove() {
             if (braking) {
                 StopCoroutine(AddDrag());
             }
             status = Status.Moving;
+            // now we just find the relative position of the waypoint from the car transform,
+            // that way we can determine how far to the left and right the waypoint is.
 
-            Vector3 direction = destination - transform.position;
+            Vector3 RelativeWaypointPosition = transform.InverseTransformPoint(new Vector3(destination.x, transform.position.y, destination.z));
 
-            destination.y = transform.position.y;
+            // by dividing the horizontal position by the magnitude, we get a decimal percentage of the turn angle that we can use to drive the wheels
+            inputSteer = RelativeWaypointPosition.x / RelativeWaypointPosition.magnitude;
 
-            /**
-             * To improve performance, near vehicles should be using rigidbodies
-             * while far ones no.
-             * But right now, i cant make rigid moving feel good
-            */
-            if (rigidbody && false) {
-                Vector3 fwd = transform.forward;
-                if (rigidbody.velocity.magnitude > carController.MaxSpeed * 0.1f) {
-                    fwd = rigidbody.velocity;
-                }
-
-                float desiredSpeed = speed;
-
-                float approachingCornerAngle = Vector3.Angle(currentWaypoint.transform.forward, fwd);
-
-                // also consider the current amount we're turning, multiplied up and then compared in the same way as an upcoming corner angle
-                float spinningAngle = rigidbody.angularVelocity.magnitude * m_CautiousAngularVelocityFactor;
-
-                // if it's different to our current angle, we need to be cautious (i.e. slow down) a certain amount
-                float cautiousnessRequired = Mathf.InverseLerp(0, m_CautiousMaxAngle,
-                                                               Mathf.Max(spinningAngle,
-                                                                         approachingCornerAngle));
-                desiredSpeed = Mathf.Lerp(carController.MaxSpeed, carController.MaxSpeed * m_CautiousSpeedFactor,
-                                          cautiousnessRequired);
-
-                // use different sensitivity depending on whether accelerating or braking:
-                float accelBrakeSensitivity = (desiredSpeed < carController.CurrentSpeed)
-                                                  ? m_BrakeSensitivity
-                                                  : m_AccelSensitivity;
-
-                // decide the actual amount of accel/brake input to achieve desired speed.
-                float accel = Mathf.Clamp((desiredSpeed - carController.CurrentSpeed) * accelBrakeSensitivity, -1, 1);
-
-                // add acceleration 'wander', which also prevents AI from seeming too uniform and robotic in their driving
-                // i.e. increasing the accel wander amount can introduce jostling and bumps between AI cars in a race
-                accel *= (1 - m_AccelWanderAmount) +
-                         (Mathf.PerlinNoise(Time.time * m_AccelWanderSpeed, m_RandomPerlin) * m_AccelWanderAmount);
-
-                // calculate the local-relative position of the target, to steer towards
-                Vector3 localTarget = transform.InverseTransformPoint(destination);
-
-                // work out the local angle towards the target
-                float targetAngle = Mathf.Atan2(localTarget.x, localTarget.z) * Mathf.Rad2Deg;
-
-                // get the amount of steering needed to aim the car towards the target
-                float steer = Mathf.Clamp(targetAngle * m_SteerSensitivity, -1, 1) * Mathf.Sign(carController.CurrentSpeed);
-
-                // feed input to the car controller.
-                carController.Move(steer, accel, accel, 0f);
+            // now we do the same for torque, but make sure that it doesn't apply any engine torque when going around a sharp turn...
+            if (Mathf.Abs(inputSteer) < 0.5) {
+                inputTorque = RelativeWaypointPosition.z / RelativeWaypointPosition.magnitude - Mathf.Abs(inputSteer);
             } else {
-                transform.position = Vector3.MoveTowards(transform.position, destination, Time.deltaTime * speed);
-                sense = getSense(direction);
-
-                if (direction != Vector3.zero) {
-                    Quaternion frontRotation = Quaternion.LookRotation(direction);
-                    transform.rotation = Quaternion.Slerp(transform.rotation, frontRotation, Time.deltaTime * (speed / 2));
-
-                    rotateWheels(frontRotation);
-                } else {
-                    rotateWheels(Quaternion.identity);
-                }
+                inputTorque = 0.0f;
             }
-        }
 
-        void rotateWheels (Quaternion frontRotation) {
-            GameObject[] meshes = carController.getWheelMeshes();
-            float rotation = Time.deltaTime * currentSpeed * 360;
-            int i = 0;
+            // Compute the engine RPM based on the average RPM of the two wheels, then call the shift gear function
+            EngineRPM = (wheelColliders[0].rpm + wheelColliders[1].rpm) / 2f * GearRatio[CurrentGear];
+            ShiftGears();
 
-            frontRotation.eulerAngles = new Vector3(rotation, frontRotation.eulerAngles.y, frontRotation.eulerAngles.z);
-
-            foreach (GameObject mesh in meshes) {
-                if (i < 2) {
-                    mesh.transform.rotation = frontRotation;
-                } else {
-                    mesh.transform.Rotate(rotation, 0, 0);
-                }
-                
-                i++;
+            // set the audio pitch to the percentage of RPM to the maximum RPM plus one, this makes the sound play
+            // up to twice it's pitch, where it will suddenly drop when it switches gears.
+            audioPlayer.pitch = Mathf.Abs(EngineRPM / MaxEngineRPM) + 1.0f;
+            // this line is just to ensure that the pitch does not reach a value higher than is desired.
+            if (audioPlayer.pitch > 2.0f) {
+                audioPlayer.pitch = 2.0f;
             }
+
+            // finally, apply the values to the wheels.	The torque applied is divided by the current gear, and
+            // multiplied by the calculated AI input variable.
+            wheelColliders[0].motorTorque = EngineTorque / GearRatio[CurrentGear] * inputTorque;
+            wheelColliders[1].motorTorque = EngineTorque / GearRatio[CurrentGear] * inputTorque;
+
+            wheelColliders[0].brakeTorque = BrakePower;
+            wheelColliders[1].brakeTorque = BrakePower;
+
+            // the steer angle is an arbitrary value multiplied by the calculated AI input.
+            wheelColliders[0].steerAngle = (steeringSharpness) * inputSteer;
+            wheelColliders[1].steerAngle = (steeringSharpness) * inputSteer;
+
+            applyAntiRoll();
+            rotateWheelMeshes();
         }
 
         // only enable lateral sensors when vehicle is turning
-        void updateSensorsStatus () {
+        void updateSensorsStatus() {
             switch (sense) {
                 case Sense.Forward:
                     rightSensor.enabled = false;
@@ -315,19 +396,18 @@ namespace Peque.Traffic
             }
         }
 
-        void hardBrake () {
+        void hardBrake() {
             if (braking) {
                 return;
             }
             showStopSignals(true);
 
-            if (rigidbody) {
-                rigidbody.velocity = Vector3.zero;
-                rigidbody.angularVelocity = Vector3.zero;
-                rigidbody.drag = 0;
+            if (rigid) {
+                rigid.velocity = Vector3.zero;
+                rigid.angularVelocity = Vector3.zero;
+                rigid.drag = 0;
             }
 
-            currentSpeed = 0;
             status = Status.Stopped;
             //StartCoroutine(AddDrag());
         }
@@ -335,20 +415,20 @@ namespace Peque.Traffic
         IEnumerator AddDrag(float multiplier = 1f) {
             braking = true;
 
-            while (rigidbody.drag < 10) {
-                rigidbody.drag = Time.deltaTime * multiplier;
+            while (rigid.drag < 10) {
+                rigid.drag = Time.deltaTime * multiplier;
                 yield return null;
             }
 
-            rigidbody.velocity = Vector3.zero;
-            rigidbody.angularVelocity = Vector3.zero;
-            rigidbody.drag = 0;
+            rigid.velocity = Vector3.zero;
+            rigid.angularVelocity = Vector3.zero;
+            rigid.drag = 0;
             braking = false;
         }
 
-        void detectFreeFalling () {
+        void detectFreeFalling() {
             // looks like went under the map
-            if (rigidbody && rigidbody.velocity.y < -100) {
+            if (rigid && rigid.velocity.y < -100) {
                 if (waypointNavigator.currentWaypoint) {
                     waypointNavigator.currentWaypoint.occupied = false; // release the waypoint
                 }
@@ -356,7 +436,7 @@ namespace Peque.Traffic
             }
         }
 
-        void showStopSignals (bool show) {
+        void showStopSignals(bool show) {
             if (stopSignals != null) {
                 foreach (MeshRenderer mesh in stopSignals) {
                     mesh.enabled = show;
@@ -370,7 +450,7 @@ namespace Peque.Traffic
         Sense getSense(Vector3 direction) {
             Vector3 right = Vector3.Cross(transform.up, transform.forward);        // right vector
             float dir = Vector3.Dot(right, direction);
-            
+
             if (dir > 1f) {
                 return Sense.Right;
             } else if (dir < -1f) {
