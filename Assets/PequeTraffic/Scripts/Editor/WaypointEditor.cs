@@ -13,39 +13,39 @@ namespace Peque.Traffic
             } else {
                 Gizmos.color = Color.yellow * 0.5f;
             }
-            if (waypoint.occupied) {
+            if (waypoint.data.occupied) {
                 Gizmos.color = Color.red;
             }
             Gizmos.DrawSphere(waypoint.transform.position, 0.1f);
 
             Gizmos.color = Color.white;
-            Gizmos.DrawLine(waypoint.transform.position + (waypoint.transform.right * waypoint.width / 2f), waypoint.transform.position - (waypoint.transform.right * waypoint.width / 2f));
+            Gizmos.DrawLine(waypoint.transform.position + (waypoint.transform.right * waypoint.data.width / 2f), waypoint.transform.position - (waypoint.transform.right * waypoint.data.width / 2f));
 
             if (waypoint.previousWaypoint != null) {
-                if (waypoint.singleDirection) {
+                if (waypoint.data.singleDirection) {
                     Gizmos.color = Color.green;
                 } else {
                     Gizmos.color = Color.red;
                 }
                 
-                Vector3 offset = waypoint.transform.right * waypoint.width / 2f;
-                Vector3 offsetTo = waypoint.previousWaypoint.transform.right * waypoint.previousWaypoint.width / 2f;
+                Vector3 offset = waypoint.transform.right * waypoint.data.width / 2f;
+                Vector3 offsetTo = waypoint.previousWaypoint.transform.right * waypoint.previousWaypoint.data.width / 2f;
 
                 Gizmos.DrawLine(waypoint.transform.position + offset, waypoint.previousWaypoint.transform.position + offsetTo);
             }
 
-            if (waypoint.previousAdditiveWaypoint != null) {
-                GameObject additiveWaypoint = GameObject.Find(waypoint.previousAdditiveWaypoint);
+            if (waypoint.data.previousAdditiveWaypoint != null) {
+                GameObject additiveWaypoint = GameObject.Find(waypoint.data.previousAdditiveWaypoint);
 
                 if (additiveWaypoint) {
-                    if (waypoint.singleDirection) {
+                    if (waypoint.data.singleDirection) {
                         Gizmos.color = Color.green;
                     } else {
                         Gizmos.color = Color.red;
                     }
 
-                    Vector3 offset = waypoint.transform.right * waypoint.width / 2f;
-                    Vector3 offsetTo = additiveWaypoint.transform.right * additiveWaypoint.GetComponent<Waypoint>().width / 2f;
+                    Vector3 offset = waypoint.transform.right * waypoint.data.width / 2f;
+                    Vector3 offsetTo = additiveWaypoint.transform.right * additiveWaypoint.GetComponent<Waypoint>().data.width / 2f;
 
                     Gizmos.DrawLine(waypoint.transform.position + offset, additiveWaypoint.transform.position + offsetTo);
                 }
@@ -53,20 +53,20 @@ namespace Peque.Traffic
 
             if (waypoint.nextWaypoint != null) {
                 Gizmos.color = Color.green;
-                Vector3 offset = waypoint.transform.right * -waypoint.width / 2f;
-                Vector3 offsetTo = waypoint.nextWaypoint.transform.right * -waypoint.nextWaypoint.width / 2f;
+                Vector3 offset = waypoint.transform.right * -waypoint.data.width / 2f;
+                Vector3 offsetTo = waypoint.nextWaypoint.transform.right * -waypoint.nextWaypoint.data.width / 2f;
 
                 Gizmos.DrawLine(waypoint.transform.position + offset, waypoint.nextWaypoint.transform.position + offsetTo);
             }
 
             
-            if (waypoint.nextAdditiveWaypoint != null) {
-                GameObject additiveWaypoint = GameObject.Find(waypoint.nextAdditiveWaypoint);
+            if (waypoint.data.nextAdditiveWaypoint != null) {
+                GameObject additiveWaypoint = GameObject.Find(waypoint.data.nextAdditiveWaypoint);
 
                 if (additiveWaypoint) {
                     Gizmos.color = Color.green;
-                    Vector3 offset = waypoint.transform.right * -waypoint.width / 2f;
-                    Vector3 offsetTo = additiveWaypoint.transform.right * -additiveWaypoint.GetComponent<Waypoint>().width / 2f;
+                    Vector3 offset = waypoint.transform.right * -waypoint.data.width / 2f;
+                    Vector3 offsetTo = additiveWaypoint.transform.right * -additiveWaypoint.GetComponent<Waypoint>().data.width / 2f;
 
                     Gizmos.DrawLine(waypoint.transform.position + offset, additiveWaypoint.transform.position + offsetTo);
                 }

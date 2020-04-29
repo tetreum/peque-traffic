@@ -62,6 +62,7 @@ namespace Peque.Traffic {
             switch (root.tag) {
                 case "Vehicle":
                     return Element.Vehicle;
+                case "Player":
                 case "Person":
                     return Element.Person;
             }

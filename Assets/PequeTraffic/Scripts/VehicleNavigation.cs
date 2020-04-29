@@ -229,7 +229,7 @@ namespace Peque.Traffic
                             // their path doesn't intersect and they aren't in the same path, just it's just an opposite side vehicle
                         } else if (infrontVehicle.currentWaypoint != currentWaypoint &&
                             !lineSegmentsIntersect(infrontVehicle.transform.position, infrontVehicle.destination, transform.position, destination) &&
-                            infrontVehicle.currentWaypoint.transform.root.GetInstanceID() != currentWaypoint.transform.root.GetInstanceID()
+                            infrontVehicle.currentWaypoint.pathId != currentWaypoint.pathId
                             ) {
                             return false;
                             // they're colliding with each other, nearest one to its destination will continue
@@ -429,7 +429,7 @@ namespace Peque.Traffic
         void detectFreeFalling() {
             // looks like went under the map
             if (rigid && rigid.velocity.y < -100) {
-                if (waypointNavigator.currentWaypoint) {
+                if (waypointNavigator.currentWaypoint != null) {
                     waypointNavigator.currentWaypoint.occupied = false; // release the waypoint
                 }
                 Destroy(gameObject);

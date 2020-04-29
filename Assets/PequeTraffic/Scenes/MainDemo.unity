@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -132,6 +133,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Semaphore (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4704101245114503009, guid: 99e32821281749f46b4ad26dffa9ff50,
+        type: 3}
+      propertyPath: copyThisSemaphore
+      value: 
+      objectReference: {fileID: 5044548086203101478}
     - target: {fileID: 7699909978080349898, guid: 99e32821281749f46b4ad26dffa9ff50,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -197,11 +203,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.30000013
       objectReference: {fileID: 0}
-    - target: {fileID: 4704101245114503009, guid: 99e32821281749f46b4ad26dffa9ff50,
-        type: 3}
-      propertyPath: copyThisSemaphore
-      value: 
-      objectReference: {fileID: 5044548086203101478}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99e32821281749f46b4ad26dffa9ff50, type: 3}
 --- !u!1 &59378128
@@ -235,18 +236,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 2096939176}
   nextWaypoint: {fileID: 1661279999}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 50
+    maxSpeed: 90
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 50
-  maxSpeed: 90
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &59378130
 Transform:
   m_ObjectHideFlags: 0
@@ -346,6 +352,8 @@ MonoBehaviour:
   numberToSpawn: 5
   maxAttempts: 10
   allowedDirection: 0
+  optimizeOnRuntime: 1
+  optimizeOnEditorToo: 0
 --- !u!1 &65180916
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,18 +399,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 75267704}
   nextWaypoint: {fileID: 1917575268}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!1 &69824444
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,18 +447,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 657285047}
   nextWaypoint: {fileID: 612741108}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &69824446
 Transform:
   m_ObjectHideFlags: 0
@@ -503,9 +521,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &74054999
 MeshRenderer:
@@ -521,6 +539,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -584,18 +603,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1846260672}
   nextWaypoint: {fileID: 141285695}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &74449012
 Transform:
   m_ObjectHideFlags: 0
@@ -641,18 +665,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 2025752175}
   nextWaypoint: {fileID: 65180918}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &75267705
 Transform:
   m_ObjectHideFlags: 0
@@ -698,18 +727,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1917575268}
   nextWaypoint: {fileID: 1233248654}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &75955242
 Transform:
   m_ObjectHideFlags: 0
@@ -755,18 +789,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1918737378}
   nextWaypoint: {fileID: 2135522562}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &109445903
 Transform:
   m_ObjectHideFlags: 0
@@ -812,19 +851,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1831719451}
   nextWaypoint: {fileID: 1643818529}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches:
   - {fileID: 174776274}
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &119201789
 Transform:
   m_ObjectHideFlags: 0
@@ -870,18 +914,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1168052092}
   nextWaypoint: {fileID: 1171648781}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 50
+    maxSpeed: 90
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 50
-  maxSpeed: 90
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &130732437
 Transform:
   m_ObjectHideFlags: 0
@@ -927,18 +976,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1265562349}
   nextWaypoint: {fileID: 1786413471}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &131495417
 Transform:
   m_ObjectHideFlags: 0
@@ -984,18 +1038,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1329802193}
   nextWaypoint: {fileID: 731378933}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &137383556
 Transform:
   m_ObjectHideFlags: 0
@@ -1041,18 +1100,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 74449011}
   nextWaypoint: {fileID: 804334674}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &141285696
 Transform:
   m_ObjectHideFlags: 0
@@ -1098,18 +1162,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1345043133}
   nextWaypoint: {fileID: 1998704298}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &157128038
 Transform:
   m_ObjectHideFlags: 0
@@ -1155,18 +1224,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 840787598}
   nextWaypoint: {fileID: 2069875429}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &166023378
 Transform:
   m_ObjectHideFlags: 0
@@ -1212,18 +1286,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1402967337}
   nextWaypoint: {fileID: 2130491649}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 50
+    maxSpeed: 90
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 50
-  maxSpeed: 90
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &174498612
 Transform:
   m_ObjectHideFlags: 0
@@ -1269,18 +1348,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 235117105}
   nextWaypoint: {fileID: 1614036907}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &174776275
 Transform:
   m_ObjectHideFlags: 0
@@ -1326,19 +1410,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 0}
   nextWaypoint: {fileID: 174776274}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 0.68
-  branchRatio: 1
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches:
   - {fileID: 1643818529}
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &235117106
 Transform:
   m_ObjectHideFlags: 0
@@ -1384,18 +1473,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1917878522}
   nextWaypoint: {fileID: 1865031549}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &258423844
 Transform:
   m_ObjectHideFlags: 0
@@ -1441,18 +1535,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 685382156}
   nextWaypoint: {fileID: 1498446506}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &269206453
 Transform:
   m_ObjectHideFlags: 0
@@ -1513,6 +1612,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1576,18 +1676,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 369046229}
   nextWaypoint: {fileID: 1069821382}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &316388200
 Transform:
   m_ObjectHideFlags: 0
@@ -1633,18 +1738,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 798628355}
   nextWaypoint: {fileID: 2128114702}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &327959764
 Transform:
   m_ObjectHideFlags: 0
@@ -1690,18 +1800,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 685481375}
   nextWaypoint: {fileID: 369046229}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &329363504
 Transform:
   m_ObjectHideFlags: 0
@@ -1747,18 +1862,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1776317678}
   nextWaypoint: {fileID: 1402967337}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &358896362
 Transform:
   m_ObjectHideFlags: 0
@@ -1804,18 +1924,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1996948353}
   nextWaypoint: {fileID: 1776317678}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &359707565
 Transform:
   m_ObjectHideFlags: 0
@@ -1861,18 +1986,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 932809750}
   nextWaypoint: {fileID: 409828523}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &360288646
 Transform:
   m_ObjectHideFlags: 0
@@ -1918,18 +2048,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 329363503}
   nextWaypoint: {fileID: 316388199}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &369046230
 Transform:
   m_ObjectHideFlags: 0
@@ -2022,18 +2157,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1776680642}
   nextWaypoint: {fileID: 1295489776}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &396894508
 Transform:
   m_ObjectHideFlags: 0
@@ -2079,18 +2219,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 2130491649}
   nextWaypoint: {fileID: 1137058995}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 50
+    maxSpeed: 90
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 50
-  maxSpeed: 90
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &401497343
 Transform:
   m_ObjectHideFlags: 0
@@ -2136,18 +2281,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 360288645}
   nextWaypoint: {fileID: 530599653}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &409828524
 Transform:
   m_ObjectHideFlags: 0
@@ -2193,18 +2343,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 802594745}
   nextWaypoint: {fileID: 1723579524}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &414879987
 Transform:
   m_ObjectHideFlags: 0
@@ -2250,18 +2405,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1518209772}
   nextWaypoint: {fileID: 685481375}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &421928032
 Transform:
   m_ObjectHideFlags: 0
@@ -2389,6 +2549,8 @@ MonoBehaviour:
   numberToSpawn: 30
   maxAttempts: 10
   allowedDirection: 2
+  optimizeOnRuntime: 1
+  optimizeOnEditorToo: 1
 --- !u!114 &466477631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2433,18 +2595,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 530599653}
   nextWaypoint: {fileID: 894238389}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &467322714
 Transform:
   m_ObjectHideFlags: 0
@@ -2488,9 +2655,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &489033755
 MeshRenderer:
@@ -2506,6 +2673,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2583,18 +2751,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1865019826}
   nextWaypoint: {fileID: 846770818}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &494795834
 Transform:
   m_ObjectHideFlags: 0
@@ -2640,18 +2813,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 739756810}
   nextWaypoint: {fileID: 1576892729}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &495925227
 Transform:
   m_ObjectHideFlags: 0
@@ -2697,18 +2875,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 409828523}
   nextWaypoint: {fileID: 467322713}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &530599654
 Transform:
   m_ObjectHideFlags: 0
@@ -2772,9 +2955,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &543082971
 MeshRenderer:
@@ -2790,6 +2973,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2856,6 +3040,8 @@ MonoBehaviour:
   numberToSpawn: 5
   maxAttempts: 10
   allowedDirection: 0
+  optimizeOnRuntime: 1
+  optimizeOnEditorToo: 0
 --- !u!4 &597673569
 Transform:
   m_ObjectHideFlags: 0
@@ -2924,18 +3110,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 69824445}
   nextWaypoint: {fileID: 1021867179}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &612741109
 Transform:
   m_ObjectHideFlags: 0
@@ -2981,19 +3172,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1262796860}
   nextWaypoint: {fileID: 69824445}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches:
   - {fileID: 1900667389}
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &657285048
 Transform:
   m_ObjectHideFlags: 0
@@ -3039,18 +3235,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1389231096}
   nextWaypoint: {fileID: 1718342155}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &676171122
 Transform:
   m_ObjectHideFlags: 0
@@ -3096,18 +3297,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 2029368210}
   nextWaypoint: {fileID: 269206452}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &685382157
 Transform:
   m_ObjectHideFlags: 0
@@ -3153,18 +3359,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 421928031}
   nextWaypoint: {fileID: 329363503}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &685481376
 Transform:
   m_ObjectHideFlags: 0
@@ -3204,8 +3415,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 1
+  m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10
@@ -3301,18 +3513,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1442126812}
   nextWaypoint: {fileID: 1917878522}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &724575539
 Transform:
   m_ObjectHideFlags: 0
@@ -3358,18 +3575,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 137383555}
   nextWaypoint: {fileID: 1929687991}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &731378934
 Transform:
   m_ObjectHideFlags: 0
@@ -3415,18 +3637,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1900667389}
   nextWaypoint: {fileID: 495925226}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &739756811
 Transform:
   m_ObjectHideFlags: 0
@@ -3486,19 +3713,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1220168129}
   nextWaypoint: {fileID: 0}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 1
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches:
   - {fileID: 1968087746}
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!1 &771029020
 GameObject:
   m_ObjectHideFlags: 0
@@ -3542,9 +3774,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &771029023
 MeshRenderer:
@@ -3560,6 +3792,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3623,18 +3856,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1643818529}
   nextWaypoint: {fileID: 1063036949}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &774240280
 Transform:
   m_ObjectHideFlags: 0
@@ -3686,18 +3924,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1968087746}
   nextWaypoint: {fileID: 327959763}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &798628356
 Transform:
   m_ObjectHideFlags: 0
@@ -3743,18 +3986,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1063036949}
   nextWaypoint: {fileID: 1343566672}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &801493774
 Transform:
   m_ObjectHideFlags: 0
@@ -3800,18 +4048,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1701781657}
   nextWaypoint: {fileID: 414879986}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &802594746
 Transform:
   m_ObjectHideFlags: 0
@@ -3857,18 +4110,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 141285695}
   nextWaypoint: {fileID: 840787598}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &804334675
 Transform:
   m_ObjectHideFlags: 0
@@ -3929,6 +4187,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3990,9 +4249,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &821012779
 MeshRenderer:
@@ -4008,6 +4267,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4097,9 +4357,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &839952813
 MeshRenderer:
@@ -4115,6 +4375,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4178,18 +4439,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 804334674}
   nextWaypoint: {fileID: 166023377}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &840787599
 Transform:
   m_ObjectHideFlags: 0
@@ -4235,19 +4501,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 494795833}
   nextWaypoint: {fileID: 1976572196}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches:
   - {fileID: 1442126812}
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &846770819
 Transform:
   m_ObjectHideFlags: 0
@@ -4293,18 +4564,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1576892729}
   nextWaypoint: {fileID: 1518209772}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &858334459
 Transform:
   m_ObjectHideFlags: 0
@@ -4350,18 +4626,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 467322713}
   nextWaypoint: {fileID: 2025752175}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &894238390
 Transform:
   m_ObjectHideFlags: 0
@@ -4407,18 +4688,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 2145372413}
   nextWaypoint: {fileID: 360288645}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &932809751
 Transform:
   m_ObjectHideFlags: 0
@@ -4553,18 +4839,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 2128114702}
   nextWaypoint: {fileID: 1822856182}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &969392830
 Transform:
   m_ObjectHideFlags: 0
@@ -4610,18 +4901,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 612741108}
   nextWaypoint: {fileID: 2035968041}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1021867180
 Transform:
   m_ObjectHideFlags: 0
@@ -4673,18 +4969,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 774240279}
   nextWaypoint: {fileID: 801493773}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1063036950
 Transform:
   m_ObjectHideFlags: 0
@@ -4730,18 +5031,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 316388199}
   nextWaypoint: {fileID: 1865019826}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1069821383
 Transform:
   m_ObjectHideFlags: 0
@@ -4799,9 +5105,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1122935169
 MeshRenderer:
@@ -4817,6 +5123,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4880,18 +5187,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 401497342}
   nextWaypoint: {fileID: 1168052092}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 50
+    maxSpeed: 90
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 50
-  maxSpeed: 90
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1137058996
 Transform:
   m_ObjectHideFlags: 0
@@ -4937,18 +5249,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1413731351}
   nextWaypoint: {fileID: 1375249105}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 50
+    maxSpeed: 90
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 50
-  maxSpeed: 90
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1138145992
 Transform:
   m_ObjectHideFlags: 0
@@ -4994,18 +5311,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1137058995}
   nextWaypoint: {fileID: 130732436}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 50
+    maxSpeed: 90
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 50
-  maxSpeed: 90
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1168052093
 Transform:
   m_ObjectHideFlags: 0
@@ -5051,18 +5373,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 130732436}
   nextWaypoint: {fileID: 1413731351}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 50
+    maxSpeed: 90
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 50
-  maxSpeed: 90
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1171648782
 Transform:
   m_ObjectHideFlags: 0
@@ -5108,18 +5435,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 2135522562}
   nextWaypoint: {fileID: 1776680642}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1185668597
 Transform:
   m_ObjectHideFlags: 0
@@ -5165,18 +5497,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1822856182}
   nextWaypoint: {fileID: 1355612544}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1190083102
 Transform:
   m_ObjectHideFlags: 0
@@ -5222,18 +5559,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1343566672}
   nextWaypoint: {fileID: 1345043133}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1201080995
 Transform:
   m_ObjectHideFlags: 0
@@ -5294,6 +5636,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5357,18 +5700,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1423827381}
   nextWaypoint: {fileID: 742606432}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1220168130
 Transform:
   m_ObjectHideFlags: 0
@@ -5414,18 +5762,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 75955241}
   nextWaypoint: {fileID: 1831719451}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1233248655
 Transform:
   m_ObjectHideFlags: 0
@@ -5471,18 +5824,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1549817924}
   nextWaypoint: {fileID: 657285047}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1262796861
 Transform:
   m_ObjectHideFlags: 0
@@ -5528,18 +5886,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1998704298}
   nextWaypoint: {fileID: 131495416}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1265562350
 Transform:
   m_ObjectHideFlags: 0
@@ -5591,18 +5954,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 396894507}
   nextWaypoint: {fileID: 1549817924}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1295489777
 Transform:
   m_ObjectHideFlags: 0
@@ -5646,9 +6014,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1318800547
 MeshRenderer:
@@ -5664,6 +6032,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5741,18 +6110,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1705851520}
   nextWaypoint: {fileID: 137383555}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1329802194
 Transform:
   m_ObjectHideFlags: 0
@@ -5798,18 +6172,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 801493773}
   nextWaypoint: {fileID: 1201080994}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1343566673
 Transform:
   m_ObjectHideFlags: 0
@@ -5855,18 +6234,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1201080994}
   nextWaypoint: {fileID: 157128037}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1345043134
 Transform:
   m_ObjectHideFlags: 0
@@ -5893,6 +6277,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: DumbSemaphore
       objectReference: {fileID: 0}
+    - target: {fileID: 4704101245114503009, guid: 99e32821281749f46b4ad26dffa9ff50,
+        type: 3}
+      propertyPath: pedestrianStopWaypoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704101245114503009, guid: 99e32821281749f46b4ad26dffa9ff50,
+        type: 3}
+      propertyPath: pedestrianStopWaypoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 174776274}
+    - target: {fileID: 4704101245114503009, guid: 99e32821281749f46b4ad26dffa9ff50,
+        type: 3}
+      propertyPath: pedestrianStopWaypoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1220168129}
     - target: {fileID: 7699909978080349898, guid: 99e32821281749f46b4ad26dffa9ff50,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5948,21 +6347,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4704101245114503009, guid: 99e32821281749f46b4ad26dffa9ff50,
-        type: 3}
-      propertyPath: pedestrianStopWaypoints.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4704101245114503009, guid: 99e32821281749f46b4ad26dffa9ff50,
-        type: 3}
-      propertyPath: pedestrianStopWaypoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 174776274}
-    - target: {fileID: 4704101245114503009, guid: 99e32821281749f46b4ad26dffa9ff50,
-        type: 3}
-      propertyPath: pedestrianStopWaypoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 1220168129}
     m_RemovedComponents:
     - {fileID: 4704101245114503009, guid: 99e32821281749f46b4ad26dffa9ff50, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 99e32821281749f46b4ad26dffa9ff50, type: 3}
@@ -6021,18 +6405,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1190083101}
   nextWaypoint: {fileID: 2029368210}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1355612545
 Transform:
   m_ObjectHideFlags: 0
@@ -6078,18 +6467,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1538833127}
   nextWaypoint: {fileID: 1380345072}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 50
+    maxSpeed: 90
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 50
-  maxSpeed: 90
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1370215422
 Transform:
   m_ObjectHideFlags: 0
@@ -6135,18 +6529,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1786413471}
   nextWaypoint: {fileID: 2145372413}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1374332206
 Transform:
   m_ObjectHideFlags: 0
@@ -6192,18 +6591,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1138145991}
   nextWaypoint: {fileID: 1538833127}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 50
+    maxSpeed: 90
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 50
-  maxSpeed: 90
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1375249106
 Transform:
   m_ObjectHideFlags: 0
@@ -6249,18 +6653,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1776633961}
   nextWaypoint: {fileID: 1705851520}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1379984266
 Transform:
   m_ObjectHideFlags: 0
@@ -6306,18 +6715,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1370215421}
   nextWaypoint: {fileID: 2096939176}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 50
+    maxSpeed: 90
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 50
-  maxSpeed: 90
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1380345073
 Transform:
   m_ObjectHideFlags: 0
@@ -6363,18 +6777,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1929687991}
   nextWaypoint: {fileID: 676171121}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1389231097
 Transform:
   m_ObjectHideFlags: 0
@@ -6420,19 +6839,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 358896361}
   nextWaypoint: {fileID: 174498611}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches:
   - {fileID: 1900667389}
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1402967338
 Transform:
   m_ObjectHideFlags: 0
@@ -6490,9 +6914,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1404852871
 MeshRenderer:
@@ -6508,6 +6932,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6571,18 +6996,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1171648781}
   nextWaypoint: {fileID: 1138145991}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 50
+    maxSpeed: 90
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 50
-  maxSpeed: 90
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1413731352
 Transform:
   m_ObjectHideFlags: 0
@@ -6640,9 +7070,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1421907581
 MeshRenderer:
@@ -6658,6 +7088,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6721,18 +7152,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1614036907}
   nextWaypoint: {fileID: 1220168129}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1423827382
 Transform:
   m_ObjectHideFlags: 0
@@ -6778,18 +7214,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1723579524}
   nextWaypoint: {fileID: 724575538}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1442126813
 Transform:
   m_ObjectHideFlags: 0
@@ -6853,9 +7294,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1477885256
 MeshRenderer:
@@ -6871,6 +7312,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6934,18 +7376,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 269206452}
   nextWaypoint: {fileID: 1846260672}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1498446507
 Transform:
   m_ObjectHideFlags: 0
@@ -6991,18 +7438,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 858334458}
   nextWaypoint: {fileID: 421928031}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1518209773
 Transform:
   m_ObjectHideFlags: 0
@@ -7048,18 +7500,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1375249105}
   nextWaypoint: {fileID: 1370215421}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 50
+    maxSpeed: 90
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 50
-  maxSpeed: 90
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1538833128
 Transform:
   m_ObjectHideFlags: 0
@@ -7105,18 +7562,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1295489776}
   nextWaypoint: {fileID: 1262796860}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1549817925
 Transform:
   m_ObjectHideFlags: 0
@@ -7162,18 +7624,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 495925226}
   nextWaypoint: {fileID: 858334458}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1576892730
 Transform:
   m_ObjectHideFlags: 0
@@ -7219,18 +7686,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 174776274}
   nextWaypoint: {fileID: 1423827381}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1614036908
 Transform:
   m_ObjectHideFlags: 0
@@ -7276,18 +7748,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 119201788}
   nextWaypoint: {fileID: 774240279}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1643818530
 Transform:
   m_ObjectHideFlags: 0
@@ -7333,19 +7810,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 59378129}
   nextWaypoint: {fileID: 0}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 50
+    maxSpeed: 90
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches:
   - {fileID: 1549817924}
-  minSpeed: 50
-  maxSpeed: 90
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1661280000
 Transform:
   m_ObjectHideFlags: 0
@@ -7391,18 +7873,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 2035968041}
   nextWaypoint: {fileID: 802594745}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1701781658
 Transform:
   m_ObjectHideFlags: 0
@@ -7448,18 +7935,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1379984265}
   nextWaypoint: {fileID: 1329802193}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1705851521
 Transform:
   m_ObjectHideFlags: 0
@@ -7519,19 +8011,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 676171121}
   nextWaypoint: {fileID: 1968087746}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches:
   - {fileID: 1220168129}
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!1 &1723579523
 GameObject:
   m_ObjectHideFlags: 0
@@ -7563,18 +8060,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 414879986}
   nextWaypoint: {fileID: 1442126812}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1723579525
 Transform:
   m_ObjectHideFlags: 0
@@ -7620,18 +8122,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 359707564}
   nextWaypoint: {fileID: 358896361}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1776317679
 Transform:
   m_ObjectHideFlags: 0
@@ -7691,18 +8198,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1953869885}
   nextWaypoint: {fileID: 1379984265}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!1 &1776680641
 GameObject:
   m_ObjectHideFlags: 0
@@ -7734,18 +8246,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1185668596}
   nextWaypoint: {fileID: 396894507}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1776680643
 Transform:
   m_ObjectHideFlags: 0
@@ -7791,18 +8308,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 131495416}
   nextWaypoint: {fileID: 1374332205}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1786413472
 Transform:
   m_ObjectHideFlags: 0
@@ -7848,18 +8370,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 969392829}
   nextWaypoint: {fileID: 1190083101}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1822856183
 Transform:
   m_ObjectHideFlags: 0
@@ -7905,18 +8432,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1233248654}
   nextWaypoint: {fileID: 119201788}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1831719452
 Transform:
   m_ObjectHideFlags: 0
@@ -7962,18 +8494,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1498446506}
   nextWaypoint: {fileID: 74449011}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1846260673
 Transform:
   m_ObjectHideFlags: 0
@@ -8034,6 +8571,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -8097,18 +8635,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1069821382}
   nextWaypoint: {fileID: 494795833}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1865019827
 Transform:
   m_ObjectHideFlags: 0
@@ -8154,18 +8697,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 258423843}
   nextWaypoint: {fileID: 1918737378}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1865031550
 Transform:
   m_ObjectHideFlags: 0
@@ -8244,18 +8792,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 0}
   nextWaypoint: {fileID: 739756810}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1900667390
 Transform:
   m_ObjectHideFlags: 0
@@ -8307,18 +8860,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 65180918}
   nextWaypoint: {fileID: 75955241}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1917575269
 Transform:
   m_ObjectHideFlags: 0
@@ -8364,18 +8922,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 724575538}
   nextWaypoint: {fileID: 258423843}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1917878523
 Transform:
   m_ObjectHideFlags: 0
@@ -8435,18 +8998,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1865031549}
   nextWaypoint: {fileID: 109445902}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!1 &1929687990
 GameObject:
   m_ObjectHideFlags: 0
@@ -8478,18 +9046,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 731378933}
   nextWaypoint: {fileID: 1389231096}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1929687992
 Transform:
   m_ObjectHideFlags: 0
@@ -8535,18 +9108,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 2069875429}
   nextWaypoint: {fileID: 1776633961}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1953869886
 Transform:
   m_ObjectHideFlags: 0
@@ -8598,18 +9176,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1718342155}
   nextWaypoint: {fileID: 798628355}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1968087747
 Transform:
   m_ObjectHideFlags: 0
@@ -8655,18 +9238,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 846770818}
   nextWaypoint: {fileID: 1996948353}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1976572197
 Transform:
   m_ObjectHideFlags: 0
@@ -8726,18 +9314,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1976572196}
   nextWaypoint: {fileID: 359707564}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!1 &1998704297
 GameObject:
   m_ObjectHideFlags: 0
@@ -8769,18 +9362,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 157128037}
   nextWaypoint: {fileID: 1265562349}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &1998704299
 Transform:
   m_ObjectHideFlags: 0
@@ -8841,6 +9439,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -8904,18 +9503,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 894238389}
   nextWaypoint: {fileID: 75267704}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &2025752176
 Transform:
   m_ObjectHideFlags: 0
@@ -8961,18 +9565,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1355612544}
   nextWaypoint: {fileID: 685382156}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &2029368211
 Transform:
   m_ObjectHideFlags: 0
@@ -9018,18 +9627,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1021867179}
   nextWaypoint: {fileID: 1701781657}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &2035968042
 Transform:
   m_ObjectHideFlags: 0
@@ -9075,18 +9689,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 166023377}
   nextWaypoint: {fileID: 1953869885}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &2069875430
 Transform:
   m_ObjectHideFlags: 0
@@ -9132,18 +9751,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1380345072}
   nextWaypoint: {fileID: 59378129}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 50
+    maxSpeed: 90
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 50
-  maxSpeed: 90
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &2096939177
 Transform:
   m_ObjectHideFlags: 0
@@ -9189,18 +9813,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 327959763}
   nextWaypoint: {fileID: 969392829}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &2128114703
 Transform:
   m_ObjectHideFlags: 0
@@ -9246,18 +9875,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 174498611}
   nextWaypoint: {fileID: 401497342}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 50
+    maxSpeed: 90
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 50
-  maxSpeed: 90
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &2130491650
 Transform:
   m_ObjectHideFlags: 0
@@ -9303,18 +9937,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 109445902}
   nextWaypoint: {fileID: 1185668596}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 1
-  reserved: 0
-  occupied: 0
-  width: 4
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 1
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 5
-  maxSpeed: 10
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &2135522563
 Transform:
   m_ObjectHideFlags: 0
@@ -9358,9 +9997,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &2142974636
 MeshRenderer:
@@ -9376,6 +10015,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -9453,18 +10093,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 1374332205}
   nextWaypoint: {fileID: 932809750}
-  previousAdditiveWaypoint: 
-  nextAdditiveWaypoint: 
-  singleDirection: 0
-  reserved: 0
-  occupied: 0
-  width: 1
-  branchRatio: 0.5
+  data:
+    previousAdditiveWaypoint: 
+    nextAdditiveWaypoint: 
+    singleDirection: 0
+    reserved: 0
+    occupied: 0
+    width: 2.44
+    branchRatio: 0.5
+    minSpeed: 5
+    maxSpeed: 10
+    relatedSemaphore: {fileID: 0}
+    semaphorePath: 0
+    pathId: 0
+    centerPosition: {x: 0, y: 0, z: 0}
+    position: {x: 0, y: 0, z: 0}
+    name: 
   branches: []
-  minSpeed: 10
-  maxSpeed: 50
-  relatedSemaphore: {fileID: 0}
-  semaphorePath: 0
 --- !u!4 &2145372414
 Transform:
   m_ObjectHideFlags: 0
@@ -9490,61 +10135,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Semaphore
-      objectReference: {fileID: 0}
-    - target: {fileID: 7699909978080349898, guid: 99e32821281749f46b4ad26dffa9ff50,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 19.193
-      objectReference: {fileID: 0}
-    - target: {fileID: 7699909978080349898, guid: 99e32821281749f46b4ad26dffa9ff50,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 7699909978080349898, guid: 99e32821281749f46b4ad26dffa9ff50,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.372
-      objectReference: {fileID: 0}
-    - target: {fileID: 7699909978080349898, guid: 99e32821281749f46b4ad26dffa9ff50,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7699909978080349898, guid: 99e32821281749f46b4ad26dffa9ff50,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7699909978080349898, guid: 99e32821281749f46b4ad26dffa9ff50,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7699909978080349898, guid: 99e32821281749f46b4ad26dffa9ff50,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7699909978080349898, guid: 99e32821281749f46b4ad26dffa9ff50,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7699909978080349898, guid: 99e32821281749f46b4ad26dffa9ff50,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7699909978080349898, guid: 99e32821281749f46b4ad26dffa9ff50,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7699909978080349898, guid: 99e32821281749f46b4ad26dffa9ff50,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4704101245114503009, guid: 99e32821281749f46b4ad26dffa9ff50,
         type: 3}
@@ -9671,6 +10261,61 @@ PrefabInstance:
       propertyPath: path2StopWaypoints.Array.data[1]
       value: 
       objectReference: {fileID: 69824445}
+    - target: {fileID: 7699909978080349898, guid: 99e32821281749f46b4ad26dffa9ff50,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19.193
+      objectReference: {fileID: 0}
+    - target: {fileID: 7699909978080349898, guid: 99e32821281749f46b4ad26dffa9ff50,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 7699909978080349898, guid: 99e32821281749f46b4ad26dffa9ff50,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.372
+      objectReference: {fileID: 0}
+    - target: {fileID: 7699909978080349898, guid: 99e32821281749f46b4ad26dffa9ff50,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7699909978080349898, guid: 99e32821281749f46b4ad26dffa9ff50,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7699909978080349898, guid: 99e32821281749f46b4ad26dffa9ff50,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7699909978080349898, guid: 99e32821281749f46b4ad26dffa9ff50,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7699909978080349898, guid: 99e32821281749f46b4ad26dffa9ff50,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7699909978080349898, guid: 99e32821281749f46b4ad26dffa9ff50,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7699909978080349898, guid: 99e32821281749f46b4ad26dffa9ff50,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7699909978080349898, guid: 99e32821281749f46b4ad26dffa9ff50,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99e32821281749f46b4ad26dffa9ff50, type: 3}
 --- !u!114 &5044548086203101478 stripped

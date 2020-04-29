@@ -16,7 +16,7 @@ namespace Peque.Traffic
             }
         }
         
-        public Waypoint currentWaypoint {
+        public WaypointData currentWaypoint {
             get {
                 return _currentWaypoint;
             }
@@ -25,17 +25,17 @@ namespace Peque.Traffic
                 _currentWaypoint = value;
             }
         }
-        private Waypoint _currentWaypoint;
-        public Waypoint previousWaypoint;
+        private WaypointData _currentWaypoint;
+        public WaypointData previousWaypoint;
 
         protected Vector3 destination;
 
         int direction;
 
-        public void init (int direction, Waypoint startPoint) {
+        public void init (int direction, WaypointData startPoint) {
             this.direction = direction;
             currentWaypoint = startPoint;
-            SetDestination(currentWaypoint.GetPosition());
+            SetDestination(currentWaypoint.position);
         }
 
         public void getNextWaypoint() {
@@ -79,7 +79,7 @@ namespace Peque.Traffic
 
             currentWaypoint.occupied = true;
 
-            SetDestination(currentWaypoint.singleDirection ? currentWaypoint.GetCenterPosition() : currentWaypoint.GetPosition());
+            SetDestination(currentWaypoint.singleDirection ? currentWaypoint.centerPosition : currentWaypoint.position);
         }
         protected void SetDestination(Vector3 destination) {
             this.destination = destination;

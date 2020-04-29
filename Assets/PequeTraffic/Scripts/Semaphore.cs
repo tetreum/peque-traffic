@@ -143,14 +143,14 @@ namespace Peque.Traffic
 
             if (path1StopWaypoints != null) {
                 foreach (var waypoint in path1StopWaypoints) {
-                    waypoint.relatedSemaphore = this;
-                    waypoint.semaphorePath = 1;
+                    waypoint.data.relatedSemaphore = this;
+                    waypoint.data.semaphorePath = 1;
                 }
             }
             if (path2StopWaypoints != null) {
                 foreach (var waypoint in path2StopWaypoints) {
-                    waypoint.relatedSemaphore = this;
-                    waypoint.semaphorePath = 2;
+                    waypoint.data.relatedSemaphore = this;
+                    waypoint.data.semaphorePath = 2;
                 }
             }
         }
@@ -159,7 +159,7 @@ namespace Peque.Traffic
             SemaphoreManager.Instance.semaphores.Add(this);
         }
 
-        public Status getStatus (Waypoint waypoint) {
+        public Status getStatus (WaypointData waypoint) {
             if (waypoint.semaphorePath == 1) {
                 return path1Status;
             }

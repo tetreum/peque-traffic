@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Peque.Traffic
@@ -16,17 +17,35 @@ namespace Peque.Traffic
         [Tooltip("Number of attempts that spawner will try to instantiate the requested amount of prefabs.")]
         public int maxAttempts = 10;
         public Direction allowedDirection = Direction.Both;
+        [Tooltip("Waypoint gameobjects will be removed at runtime to improve fps")]
+        public bool optimizeOnRuntime = true;
+        [Tooltip("Waypoint gameobjects removal at runtime will also be done in Editor")]
+        public bool optimizeOnEditorToo = true;
+
+        private List<WaypointData> waypoints;
 
         void Start() {
-            StartCoroutine(spawn());
+            getChildWaypoints();
+
+            if (numberToSpawn > 0 && waypoints.Count > 0) {
+                StartCoroutine(spawn());
+            }
+        }
+
+        private void getChildWaypoints() {
+            waypoints = new List<WaypointData>();
+
+            foreach (Waypoint waypoint in transform.GetComponentsInChildren<Waypoint>()) {
+                waypoints.Add(waypoint.data);
+            }
         }
 
         IEnumerator spawn () {
             int count = 0;
-            int attempts = 0;
+            int attempts = 0; 
 
             while (count < numberToSpawn) {
-                Waypoint randomWaypoint = getRandomWaypoint();
+                WaypointData randomWaypoint = getRandomWaypoint();
 
                 // seems like there are no available slots
                 if (randomWaypoint == null) {
@@ -46,17 +65,17 @@ namespace Peque.Traffic
 
                 GameObject obj = Instantiate(prefabs[Random.Range(0, prefabs.Length)]);
 
-                Vector3 spawnPosition = randomWaypoint.transform.position;
+                Vector3 spawnPosition = randomWaypoint.centerPosition;
                 spawnPosition.y += 0.5f;
 
                 obj.transform.position = spawnPosition;
 
 				// Point spawned entities looking at their next waypoint
                 Vector3 lookPos = spawnPosition;
-                if (randomWaypoint.nextWaypoint) {
-                    lookPos = randomWaypoint.nextWaypoint.transform.position;
-                } else if(randomWaypoint.previousWaypoint) {
-                    lookPos = randomWaypoint.previousWaypoint.transform.position;
+                if (randomWaypoint.nextWaypoint != null) {
+                    lookPos = randomWaypoint.nextWaypoint.centerPosition;
+                } else if(randomWaypoint.previousWaypoint != null) {
+                    lookPos = randomWaypoint.previousWaypoint.centerPosition;
                 }
 
                 lookPos.y = obj.transform.position.y;
@@ -76,11 +95,20 @@ namespace Peque.Traffic
                 yield return new WaitForEndOfFrame();
                 count++;
             }
+
+            if (optimizeOnRuntime && (!Application.isEditor || (Application.isEditor && optimizeOnEditorToo))) {
+                removeWaypointsGameobjects();
+            }
         }
 
-        Waypoint getRandomWaypoint (int attempt = 0) {
-            Transform child = transform.GetChild(Random.Range(0, transform.childCount - 1));
-            Waypoint waypoint = child.GetComponent<Waypoint>();
+        void removeWaypointsGameobjects () {
+            foreach (Transform child in transform) {
+                Destroy(child.gameObject);
+            }
+        }
+
+        WaypointData getRandomWaypoint (int attempt = 0) {
+            WaypointData waypoint = waypoints[Random.Range(0, waypoints.Count - 1)];
 
             // to avoid overlapping on spawn, check if current or nearest waypoints are already occupied
             if (waypoint.occupied || (waypoint.nextWaypoint != null && waypoint.nextWaypoint.occupied) || (waypoint.previousWaypoint != null && waypoint.previousWaypoint.occupied)) {
