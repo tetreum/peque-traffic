@@ -7,7 +7,7 @@ namespace Peque.Traffic
     {
         public Waypoint previousWaypoint;
         public Waypoint nextWaypoint;
-        public WaypointData data;
+        public WaypointData data = new WaypointData();
 
         public List<Waypoint> branches = new List<Waypoint>();
 
