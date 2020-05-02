@@ -151,6 +151,8 @@ namespace Peque.Traffic
                 moveToWaypoint(speed);
 
                 sense = getSense(destination - transform.position);
+            } else {
+                status = Status.Stopped;
             }
         }
 
@@ -160,6 +162,7 @@ namespace Peque.Traffic
             } else {
                 vectorMove(speed);
             }
+            status = Status.Moving;
         }
 
         void vectorMove(int speed) {
@@ -325,7 +328,6 @@ namespace Peque.Traffic
             if (braking) {
                 StopCoroutine(AddDrag());
             }
-            status = Status.Moving;
             // now we just find the relative position of the waypoint from the car transform,
             // that way we can determine how far to the left and right the waypoint is.
 
