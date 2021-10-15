@@ -5,6 +5,7 @@ namespace Peque.Traffic
 { 
     public class WaypointManagerWindow : EditorWindow
     {
+        public static WaypointManagerWindow Instance;
         public Transform waypointRoot;
         private Waypoint previousWaypoint;
 
@@ -30,6 +31,10 @@ namespace Peque.Traffic
             SerializedObject obj = new SerializedObject(this);
 
             EditorGUILayout.PropertyField(obj.FindProperty("waypointRoot"));
+
+            if (Instance == null) {
+                Instance = this;
+            }
 
             if (waypointRoot == null) {
                 EditorGUILayout.HelpBox("Root transform must be selected. Please assign a root transform", MessageType.Warning);

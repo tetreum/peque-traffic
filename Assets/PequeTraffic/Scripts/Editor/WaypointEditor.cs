@@ -8,6 +8,10 @@ namespace Peque.Traffic
     {
         [DrawGizmo(GizmoType.NonSelected | GizmoType.Selected | GizmoType.Pickable)]
         public static void OnDrawSceneGizmo (Waypoint waypoint, GizmoType gizmoType) {
+            if (WaypointManagerWindow.Instance == null || WaypointManagerWindow.Instance.waypointRoot == null) {
+                return;
+            }
+
             if ((gizmoType & GizmoType.Selected) != 0) {
                 Gizmos.color = Color.yellow;
             } else {
